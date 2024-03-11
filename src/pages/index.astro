@@ -2,10 +2,13 @@
 import ArrowLinkIcon from "@assets/ArrowLinkIcon.astro";
 import GithubIcon from "@assets/GithubIcon.astro";
 import LinkedinIcon from "@assets/LinkedinIcon.astro";
+import kanbanApp from "@assets/kanbanApp.png";
+import worldM from "@assets/worldM.png";
 import EmailIcon from "@components/EmailIcon.astro";
 import LinksDesign from "@components/LinksDesign.astro";
 import ProjectCard from "@components/ProjectCard.astro";
-import SliderTechnologies from "@components/SliderTechnologies.astro";
+import SliderTechnologiesT from "@components/SliderTechnologiesT.astro";
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -63,9 +66,10 @@ import Layout from "../layouts/Layout.astro";
           class="block w-[15rem] font-normal text-lg text-Gray pb-[.9375rem] md:text-xl md:pb-[40px] 1xl:pb-[60px]"
           >Tecnologías detrás de mis Proyectos:
         </span>
-
-        <SliderTechnologies />
+        <!-- <SliderTechnologies /> -->
       </div>
+
+      <SliderTechnologiesT />
 
       <section
         id="projects-bg"
@@ -93,18 +97,20 @@ import Layout from "../layouts/Layout.astro";
 
         <div class="flex flex-col gap-16 items-center md:gap-32 1xl:gap-48">
           <ProjectCard title="Where in the world?">
-            <img
+            <Image
               class="lg:w-[80%]"
-              src="../../public/worldM.png"
-              alt="Un pájaro sentado sobre un nido de huevos."
+              src={worldM}
+              alt="Proyecto 'Where in the world?'"
+              loading="lazy"
             />
           </ProjectCard>
 
           <ProjectCard title="KanbanApp">
-            <img
+            <Image
               class="lg:w-[80%]"
-              src={"../../public/63shots_so.png"}
-              alt="Un pájaro sentado sobre un nido de huevos."
+              src={kanbanApp}
+              alt="Proyecto 'Where in the world?'"
+              loading="lazy"
             />
           </ProjectCard>
         </div>
