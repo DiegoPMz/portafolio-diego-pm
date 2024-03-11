@@ -1,51 +1,182 @@
----
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
----
-
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Diego Peralta</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  @font-face {
+    font-family: "Figtree";
+    src: url("/fonts/Figtree-VariableFont_wght.ttf") format("ttf");
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Aquí definimos las Custom properties */
+  :root {
+    /* --blackbg: #0f0f0f; */
+    --blackbg: #000;
+
+    /* Tipografía */
+    --font-principal: "Figtree", sans-serif;
+  }
+
+  /* Reseteamos los margin y paddings de todas las etiquetas */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+  }
+
+  /* Evitamos problemas con las imagenes */
+  img,
+  picture,
+  video,
+  iframe,
+  figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  /* Reseteamos los enlaces para funcionar como cajas... */
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  /* ... excepto los que se encuentran en párrafos */
+  p a {
+    display: inline;
+  }
+
+  /* Quitamos los puntos de los <li> */
+  li {
+    list-style-type: none;
+  }
+
+  /* Configuramos anclas suaves */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Desactivamos estilos por defecto de las principales etiquetas de texto */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  strong,
+  blockquote,
+  i,
+  b,
+  u,
+  em {
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Evitamos problemas con los pseudoelementos de quotes */
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: "";
+    content: none;
+  }
+
+  /* Configuramos el texto que seleccionamos */
+  ::-moz-selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+  }
+  ::selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+  }
+
+  /* Nivelamos problemas de tipografías y colocación de formularios */
+  form,
+  input,
+  textarea,
+  select,
+  button,
+  label {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+    appearance: none;
+  }
+
+  /* Reseteamos las tablas */
+  table,
+  tr,
+  td {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /* Evitamos problemas con los SVG */
+  svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+  }
+
+  body {
+    min-height: 100vh;
+    font-size: 100%;
+    hyphens: auto;
+    font-smooth: always;
+    font-family: var(--font-principal);
+    background-color: var(--blackbg);
+
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+
+    /* background-color: rgba(0, 0, 0, 0);
+    opacity: 0.1;
+    background-image: radial-gradient(#757575 0.8px, rgba(0, 0, 0, 0) 0.8px);
+    background-size: 16px 16px; */
+
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0.15;
+    background-image: radial-gradient(#757575 0.75px, transparent 0.75px),
+      radial-gradient(#757575 0.75px, rgba(0, 0, 0, 0) 0.75px);
+    background-size: 30px 30px;
+    background-position:
+      0 0,
+      15px 15px;
+  }
 </style>

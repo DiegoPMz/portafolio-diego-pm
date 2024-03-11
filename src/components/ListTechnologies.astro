@@ -1,0 +1,68 @@
+---
+import CSSIcon from "../assets/CSSIcon.astro";
+import HTMLIcon from "../assets/HTMLIcon.astro";
+import JSIcon from "../assets/JSIcon.astro";
+import ReactIcon from "../assets/ReactIcon.astro";
+import SassIcon from "../assets/SassIcon.astro";
+import TSIcon from "../assets/TSIcon.astro";
+import TailwindIcon from "../assets/TailwindIcon.astro";
+---
+
+<div id="tecnologiesSlider" class="flex min-w-fit">
+  <div
+    class="aspect-square mx-4 w-[40px] text-[#008bfd] md:w-[60px] md:mx-8 1xl:w-[80px]"
+  >
+    <HTMLIcon className="w-full h-full" />
+  </div>
+
+  <div
+    class="aspect-square mx-4 w-[40px] text-[#008bfd] md:w-[60px] md:mx-8 1xl:w-[80px]"
+  >
+    <CSSIcon className="w-full h-full" />
+  </div>
+
+  <div
+    class="aspect-square mx-4 w-[40px] text-[#008bfd] md:w-[60px] md:mx-8 1xl:w-[80px]"
+  >
+    <JSIcon className="w-full h-full" />
+  </div>
+
+  <div
+    class="aspect-square mx-4 w-[40px] text-[#008bfd] md:w-[60px] md:mx-8 1xl:w-[80px]"
+  >
+    <ReactIcon className="w-full h-full" />
+  </div>
+
+  <div
+    class="aspect-square mx-4 w-[40px] text-[#008bfd] md:w-[60px] md:mx-8 1xl:w-[80px]"
+  >
+    <TSIcon className="w-full h-full" />
+  </div>
+
+  <div
+    class="aspect-square mx-4 w-[40px] text-[#008bfd] md:w-[60px] md:mx-8 1xl:w-[80px]"
+  >
+    <SassIcon className="w-full h-full" />
+  </div>
+
+  <div
+    class="aspect-square mx-4 w-[40px] text-[#008bfd] md:w-[60px] md:mx-8 1xl:w-[80px]"
+  >
+    <TailwindIcon className="w-full h-full" />
+  </div>
+</div>
+
+<style>
+  #tecnologiesSlider {
+    animation: slideEffect 30s linear infinite;
+  }
+
+  @keyframes slideEffect {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
