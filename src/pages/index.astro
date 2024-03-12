@@ -2,7 +2,7 @@
 import ArrowLinkIcon from "@assets/ArrowLinkIcon.astro";
 import GithubIcon from "@assets/GithubIcon.astro";
 import LinkedinIcon from "@assets/LinkedinIcon.astro";
-import kanbanApp from "@assets/kanbanApp.png";
+import kanbanApp from "@assets/kanbanAppWM.png";
 import worldM from "@assets/worldM.png";
 import EmailIcon from "@components/EmailIcon.astro";
 import LinksDesign from "@components/LinksDesign.astro";
@@ -10,9 +10,10 @@ import ProjectCard from "@components/ProjectCard.astro";
 import SliderTechnologiesT from "@components/SliderTechnologiesT.astro";
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import EmailButton from "@components/EmailButton.astro";
 ---
 
-<!-- https://huemint.com/website-2/#palette=000000-ffffff-ec18e8-00fcfe --><!-- 1xl:px-28 --><!-- 1xl:px-56 --><!-- ec18e8 -->
+<!-- https://huemint.com/website-2/#palette=000000-ffffff-ec18e8-00fcfe -->
 <Layout>
   <div
     class="relative p-6 md:p-10 overflow-hidden 1xl:px-28 1xl:pt-28 3xl:px-40"
@@ -27,8 +28,11 @@ import Layout from "../layouts/Layout.astro";
     ></span>
 
     <header>
-      <h1 class="text-white text-4xl font-black md:text-7xl">
-        DESARROLLADOR FROTEND
+      <h1
+        id="observer-style"
+        class="text-white text-4xl font-black md:text-7xl"
+      >
+        DESARROLLADOR FRONTEND
       </h1>
       <div class="flex items-center gap-[.75rem] text-white pt-[.5rem]">
         <LinksDesign>
@@ -39,14 +43,15 @@ import Layout from "../layouts/Layout.astro";
           <GithubIcon className="w-4" />
         </LinksDesign>
 
-        <LinksDesign>
-          <EmailIcon className="w-4" />
-        </LinksDesign>
+        <EmailButton />
       </div>
     </header>
 
     <main>
-      <div class="pt-[5rem] flex flex-col md:gap-3 1xl:w-[58%]">
+      <div
+        id="observer-style"
+        class="pt-[5rem] flex flex-col md:gap-3 1xl:w-[58%]"
+      >
         <span class="font-normal text-lg text-Gray md:text-xl">
           Hola, me llamo
           <span class="text-[#008bfd] font-bold"> Diego</span>.
@@ -61,9 +66,10 @@ import Layout from "../layouts/Layout.astro";
         </p>
       </div>
 
-      <div class="max-w-full z-30 overflow-hidden pt-[80px] pb-[4.875rem]">
+      <div class="pt-[80px] md:pb-[30px] md:pt-[100px]">
         <span
-          class="block w-[15rem] font-normal text-lg text-Gray pb-[.9375rem] md:text-xl md:pb-[40px] 1xl:pb-[60px]"
+          id="observer-style"
+          class="block w-[15rem] font-normal text-lg text-Gray md:text-xl"
           >Tecnologías detrás de mis Proyectos:
         </span>
         <!-- <SliderTechnologies /> -->
@@ -90,13 +96,17 @@ import Layout from "../layouts/Layout.astro";
         ></span>
 
         <h2
+          id="observer-style"
           class="text-[2rem] text-center text-white font-normal z-10 md:text-[3rem] md:pb-[80px] 1xl:text-[4rem] 3xl:pt-[100px]"
         >
           MIS PROYECTOS
         </h2>
 
         <div class="flex flex-col gap-16 items-center md:gap-32 1xl:gap-48">
-          <ProjectCard title="Where in the world?">
+          <ProjectCard
+            url="https://where-in-the-world-ashy.vercel.app/"
+            title="Where in the world?"
+          >
             <Image
               class="lg:w-[80%]"
               src={worldM}
@@ -105,7 +115,10 @@ import Layout from "../layouts/Layout.astro";
             />
           </ProjectCard>
 
-          <ProjectCard title="KanbanApp">
+          <ProjectCard
+            url="https://kanban-app-nine-xi.vercel.app/"
+            title="KanbanApp"
+          >
             <Image
               class="lg:w-[80%]"
               src={kanbanApp}
@@ -116,6 +129,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <p
+          id="observer-style"
           class="font-normal text-2xl text-center text-Gray pt-[32px] md:text-3xl 1xl:py-[140px] 1xl:w-[50%] ms-auto me-auto"
         >
           Gracias por detenerte en mi página. Tu visita es realmente apreciada.
@@ -151,7 +165,6 @@ import Layout from "../layouts/Layout.astro";
   </div>
 </Layout>
 
-<style></style>
 <!-- #projects-bg::before {
   content: "";
   /* 1.5rem * 2 padding div container */
@@ -231,3 +244,33 @@ import Layout from "../layouts/Layout.astro";
     left: -112px;
   }
 } -->
+
+<style>
+  #observer-style {
+    transform: translateY(-20px);
+    opacity: 0;
+
+    transition: all 0.4s linear;
+  }
+</style>
+
+<script>
+  const options = {
+    rootMargin: "0px",
+    threshold: 1.0,
+  };
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transform = "translateY(0)";
+        entry.target.style.opacity = "1";
+      }
+    });
+  };
+
+  const elements = document.querySelectorAll("#observer-style");
+
+  const observer = new IntersectionObserver(callback, options);
+  elements.forEach((el) => observer.observe(el));
+</script>

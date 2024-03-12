@@ -1,0 +1,59 @@
+---
+import EmailIcon from "./EmailIcon.astro";
+import LinksDesign from "./LinksDesign.astro";
+---
+
+<button
+  id={"email-button"}
+  class="w-[32px] relative aspect-square flex items-center justify-center rounded-full ring-1 ring-Gray hover:ring-Yellow"
+>
+  <EmailIcon className="w-4  " />
+</button>
+
+<script>
+  const ATTRIBUTES = {
+    BUTTON_ID: "email-button",
+    MESSAGE_ID: "messageEl",
+  };
+
+  const button = document.querySelector(`#${ATTRIBUTES.BUTTON_ID}`);
+
+  const addMessageElement = () => {
+    const messageEl = document.createElement("span");
+    messageEl.textContent = "Copiado";
+    messageEl.id = ATTRIBUTES.MESSAGE_ID;
+    messageEl.classList =
+      "px-[8px] bg-white text-black absolute duration-[500ms] text-xs ease-linear transition-all opacity- rounded-full  ";
+
+    button.appendChild(messageEl);
+
+    return { messageEl };
+  };
+
+  const copyToClipboard = () => {
+    const textCopy = "diego.pmz08@gmail.com";
+
+    navigator.clipboard.writeText(textCopy).catch(function (err) {
+      console.error("Error al intentar copiar al portapapeles: ", err);
+    });
+  };
+
+  button.addEventListener("click", () => {
+    copyToClipboard();
+    const { messageEl } = addMessageElement();
+
+    setTimeout(() => {
+      messageEl.style.transform = "translateY(-20px)";
+      messageEl.style.opacity = "0";
+    }, 100);
+
+    setTimeout(() => {
+      const parentElements = Array.from(button.children);
+      const validateElement = parentElements.some(
+        (el) => el.id === ATTRIBUTES.MESSAGE_ID
+      );
+
+      if (validateElement) button.removeChild(messageEl);
+    }, 1000);
+  });
+</script>
