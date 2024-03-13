@@ -1,10 +1,11 @@
 ---
-const { id } = Astro.props;
+const { id, url, aria_label } = Astro.props;
 ---
 
 <a
-  id={id ?? ""}
-  href="#"
+  target="_blank"
+  aria-label={aria_label ?? ""}
+  href={url ?? "#"}
   class="w-[32px] relative aspect-square flex items-center justify-center rounded-full ring-1 ring-Gray hover:ring-Yellow"
 >
   <slot />

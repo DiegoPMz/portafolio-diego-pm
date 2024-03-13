@@ -4,13 +4,15 @@ import GithubIcon from "@assets/GithubIcon.astro";
 import LinkedinIcon from "@assets/LinkedinIcon.astro";
 import kanbanApp from "@assets/kanbanAppWM.png";
 import worldM from "@assets/worldM.png";
-import EmailIcon from "@components/EmailIcon.astro";
+
 import LinksDesign from "@components/LinksDesign.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 import SliderTechnologiesT from "@components/SliderTechnologiesT.astro";
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import EmailButton from "@components/EmailButton.astro";
+import FooterSection from "@components/FooterSection.astro";
+import EmailIcon from "@components/EmailIcon.astro";
 ---
 
 <!-- https://huemint.com/website-2/#palette=000000-ffffff-ec18e8-00fcfe -->
@@ -35,15 +37,28 @@ import EmailButton from "@components/EmailButton.astro";
         DESARROLLADOR FRONTEND
       </h1>
       <div class="flex items-center gap-[.75rem] text-white pt-[.5rem]">
-        <LinksDesign>
+        <LinksDesign
+          aria_label="Perfil de Linkedin"
+          url="https://www.linkedin.com/in/diego-peralta-b9b012291/"
+        >
           <LinkedinIcon className="w-4" />
         </LinksDesign>
 
-        <LinksDesign>
+        <LinksDesign
+          aria_label="Perfil de Github"
+          url="https://github.com/DiegoPMz"
+        >
           <GithubIcon className="w-4" />
         </LinksDesign>
 
-        <EmailButton />
+        <EmailButton
+          setId={"testing"}
+          setCopy={"diego.pmz08@gmail.com"}
+          setMessageRes={"Copiado"}
+          className="w-[32px] relative aspect-square flex items-center justify-center rounded-full ring-1 ring-Gray hover:ring-Yellow"
+        >
+          <EmailIcon className="w-4" />
+        </EmailButton>
       </div>
     </header>
 
@@ -108,10 +123,10 @@ import EmailButton from "@components/EmailButton.astro";
             title="Where in the world?"
           >
             <Image
-              class="lg:w-[80%]"
+              class="lg:w-[80%] hover:scale-[1.02] transition-all ease-in duration-150"
               src={worldM}
               alt="Proyecto 'Where in the world?'"
-              loading="lazy"
+              loading="eager"
             />
           </ProjectCard>
 
@@ -120,10 +135,10 @@ import EmailButton from "@components/EmailButton.astro";
             title="KanbanApp"
           >
             <Image
-              class="lg:w-[80%]"
+              class="lg:w-[80%] hover:scale-[1.02] transition-all ease-in duration-150"
               src={kanbanApp}
               alt="Proyecto 'KanbanApp'"
-              loading="lazy"
+              loading="eager"
             />
           </ProjectCard>
         </div>
@@ -137,120 +152,20 @@ import EmailButton from "@components/EmailButton.astro";
           exploración!
         </p>
       </section>
+
+      <FooterSection />
     </main>
-    <footer
-      class="relative after:w-full after:h-[1px] after:bg-white after:absolute after:top-0"
-    >
-      <ul class="text-Gray flex flex-col gap-[1rem] pt-[40px]">
-        <li class="flex gap-2">
-          Linkedin
-          <div class="rotate-[-45deg]">
-            <ArrowLinkIcon className="aspect-square w-3 " />
-          </div>
-        </li>
-        <li class="flex gap-2">
-          GitHub
-          <div class="rotate-[-45deg]">
-            <ArrowLinkIcon className="aspect-square w-3 " />
-          </div>
-        </li>
-        <li class="flex gap-2">
-          Email
-          <div class="rotate-[-45deg]">
-            <ArrowLinkIcon className="aspect-square w-3 " />
-          </div>
-        </li>
-      </ul>
-    </footer>
   </div>
 </Layout>
-
-<!-- #projects-bg::before {
-  content: "";
-  /* 1.5rem * 2 padding div container */
-  width: calc(100% + 3rem);
-  height: 100%;
-
-  z-index: -1;
-  position: absolute;
-  top: 0;
-
-  /* 1.5rem padding div container */
-  left: -1.5rem;
-  /* background-color: rgba(255, 255, 255, 0);
-  opacity: 1;
-  background-image: linear-gradient(
-      #8080801a 0.1563rem,
-      transparent 0.1563rem
-    ),
-    linear-gradient(
-      to right,
-      #8080801a 0.1563rem,
-      rgba(128, 4, 4, 0) 0.1563rem
-    );
-  background-size: 6.875rem 6.875rem; */
-}
-
-#projects-bg::after {
-  content: "";
-
-  position: absolute;
-  /* 1.5rem * 2 padding div container */
-  width: calc(100% + 3rem);
-  height: 20%;
-
-  z-index: -1;
-  position: absolute;
-  top: 0;
-
-  /* 1.5rem padding div container */
-  left: -1.5rem;
-}
-
-@media screen and (min-width: 768px) {
-  #projects-bg::before {
-    content: "";
-    /* 40px * 2 padding div container */
-    width: calc(100% + 80px);
-    /* 1.5rem padding div container */
-    left: -40px;
-  }
-
-  #projects-bg::after {
-    /* 40px * 2 padding div container */
-    width: calc(100% + 80px);
-
-    /* 1.5rem padding div container */
-    left: -40px;
-
-    /* background-color: red; */
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  #projects-bg::before {
-    content: "";
-    /* 112px * 2 padding div container */
-    width: calc(100% + (112px * 2));
-    /* 112px padding div container */
-    left: -112px;
-  }
-
-  #projects-bg::after {
-    /* 112px * 2 padding div container */
-    width: calc(100% + (112px * 2));
-
-    /* 112px padding div container */
-    left: -112px;
-  }
-} -->
 
 <style>
   #observer-style {
     transform: translateY(-20px);
     opacity: 0;
 
-    transition: all 0.4s linear;
+    transition:
+      transform 0.4s linear,
+      opacity 0.4s linear;
   }
 </style>
 
