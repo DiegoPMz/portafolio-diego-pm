@@ -14,6 +14,9 @@ export default {
 			screens : {
 				'1xl': {'min': '1440px'},
 				'3xl': {'min': '1660px'},
+			},
+			aspectRatio : {
+				'mockup' : "4/3"
 			}
 		},
 	},
