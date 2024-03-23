@@ -40,4 +40,13 @@ import ListTechnologies from "./ListTechnologies.astro";
 
     opacity: 0.1;
   }
+
+  #slider-container::before,
+  #slider-container::after {
+    content: "";
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+  }
 </style>

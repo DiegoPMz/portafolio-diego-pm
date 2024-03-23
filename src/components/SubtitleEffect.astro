@@ -1,0 +1,39 @@
+---
+const { text } = Astro.props;
+---
+
+<div class="w-full flex justify-center">
+  <h2
+    class="text-[2rem] relative text-center text-white font-normal z-10 md:text-[3rem] md:pb-[80px] 1xl:text-[4rem] 3xl:pt-[100px]"
+    data-text={text}
+    id="parent-text"
+  >
+    <slot />
+  </h2>
+</div>
+
+<style>
+  #parent-text::before {
+    content: attr(data-text);
+    position: absolute;
+
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid white;
+    @apply text-BlueC;
+
+    animation: text-slice 10s linear infinite;
+  }
+
+  @keyframes text-slice {
+    0%,
+    10%,
+    100% {
+      width: 0;
+    }
+    70%,
+    90% {
+      width: 100%;
+    }
+  }
+</style>

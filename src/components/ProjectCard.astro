@@ -4,7 +4,7 @@ const { title, url } = Astro.props;
 
 <!-- pl-[24px] py-[24px] -->
 <article id="project-article">
-  <a target="_blank" href={url ?? "#"}>
+  <a href={url ?? "#"}>
     <div id="bg-container" class="bg-cyan-900 rounded-[16px] relative">
       <div class="px-[24px] pt-[24px] lg:px-[32px] lg:pt-[32px]">
         <h3 class="font-semibold text-white text-2xl md:text-4xl md:pb-[8px]">
@@ -117,25 +117,3 @@ const { title, url } = Astro.props;
     );
   }
 </style>
-
-<!-- <article
-  id="card"
-  class="w-full relative px-[24px] py-[16px] rounded-3xl bg-gradient-to-t from-Black to-[#272727] 1xl:w-[80%]"
->
-  <h3 class="font-normal text-white text-2xl md:text-4xl">Framer templates</h3>
-  <p class="font-normal text-Gray text-[18px] w-[80%] pb-[24px] md:text-2xl">
-    Launch your new website in minutes.
-  </p>
-  <div
-    id="mockup-bg"
-    class="w-full h-[300px] rounded-3xl md:h-[460px] 1xl:h-[540px] flex items-center"
-  >
-
-    <img
-      class="aspect-video"
-      src={mockup.src}
-      alt="Un pájaro sentado sobre un nido de huevos."
-    />
-  </div>
-  <ButtonDetails />
-</article> -->

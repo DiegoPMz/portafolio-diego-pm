@@ -1,5 +1,11 @@
 ---
-const { setId = "", setCopy = "", setMessageRes = "", className } = Astro.props;
+const {
+  id = "",
+  setId = "",
+  setCopy = "",
+  setMessageRes = "",
+  className,
+} = Astro.props;
 ---
 
 <custom-element
@@ -7,7 +13,7 @@ const { setId = "", setCopy = "", setMessageRes = "", className } = Astro.props;
   data-setcopy={setCopy}
   data-setmessageresponse={setMessageRes}
 >
-  <button class={`relative ${className ?? ""}`}>
+  <button id={`${id}`} class={`relative ${className ?? ""}`}>
     <slot />
   </button>
 </custom-element>
@@ -64,3 +70,62 @@ const { setId = "", setCopy = "", setMessageRes = "", className } = Astro.props;
 
   customElements.define("custom-element", ButtonMessage);
 </script>
+
+<style>
+  #link-style {
+    position: relative;
+    border-radius: 50%;
+
+    width: 32px;
+    aspect-ratio: 1/1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+      90deg,
+      hsla(254, 68%, 9%, 1) 0%,
+      hsla(269, 97%, 37%, 1) 33%,
+      hsla(320, 77%, 55%, 1) 66%,
+      hsla(316, 41%, 93%, 1) 100%
+    );
+  }
+
+  #link-style::before {
+    content: "";
+
+    position: absolute;
+    inset: 1px;
+    background-color: #000;
+    border-radius: 16px;
+  }
+
+  #link-style:hover::before {
+    opacity: 0.7;
+  }
+
+  #link-style::after {
+    content: "";
+
+    position: absolute;
+    inset: 0px;
+
+    border-radius: 16px;
+    background: linear-gradient(
+      90deg,
+      hsla(254, 68%, 9%, 1) 0%,
+      hsla(269, 97%, 37%, 1) 33%,
+      hsla(320, 77%, 55%, 1) 66%,
+      hsla(316, 41%, 93%, 1) 100%
+    );
+
+    transition: 0.5s;
+    opacity: 0;
+    filter: blur(20px);
+  }
+
+  #link-style:hover::after {
+    opacity: 1;
+  }
+</style>

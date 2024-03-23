@@ -6,7 +6,10 @@ export default {
 			colors : {
 				Yellow :  "#F7F900",
 				Gray : "#AEAEAE",
-				Black : "#0F0F0F"
+				Black : "#000",
+				PinkC : "#ec18e8",
+				BlueC : "#008bfd"
+
 			},
 			screens : {
 				'1xl': {'min': '1440px'},
