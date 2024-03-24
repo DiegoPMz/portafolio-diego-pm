@@ -33,7 +33,7 @@ import MainLayout from "../../layouts/Layout.astro";
 
     <div class="flex justify-center">
       <img
-        class="w-full min-w-[375px] min-h-[281.25px] aspect-auto lg:w-[1000px] object-fill"
+        class="w-full aspect-mockup lg:w-[1000px] object-fill"
         src={kanbanAppLap.src}
         alt="Imagen del proyecto desde una laptop"
       />
@@ -45,26 +45,33 @@ import MainLayout from "../../layouts/Layout.astro";
     <section
       class="w-full flex flex-col gap-[42px] lg:gap-[100px] 1xl:gap-[120px]"
     >
-      <span
-        class="w-[120px] aspect-square absolute z-[-1] right-[-70px] top-[350px] bg-indigo-700 rounded-full blur-2xl opacity-50"
-      ></span>
-      <span
-        class="w-[170px] aspect-square absolute z-[-1] left-[-20px] top-[700px] bg-indigo-500 rounded-full blur-2xl opacity-50"
-      ></span>
-      <span
-        class="w-[120px] aspect-square absolute z-[-1] right-[60px] top-[1200px] bg-indigo-700 rounded-full blur-2xl opacity-50"
-      ></span>
-      <span
-        class="w-[140px] aspect-square absolute z-[-1] left-0 top-[1900px] bg-indigo-700 rounded-full blur-2xl opacity-50"
+      <!-- <span
+        class="w-[120px] aspect-square absolute z-[-1] right-[-70px] top-[350px] bg-indigo-700 rounded-full blur-2xl opacity-50 md:w-[220px] md:opacity-30 xl:right-[-4%] xl:w-[320px] xl:opacity-25"
+      ></span> -->
+
+      <!-- <span
+        class="w-[120px] aspect-square absolute z-[-1] right-[60px] top-[1200px] bg-indigo-700 rounded-full blur-2xl opacity-50 md:w-[220px] xl:right-[-10%] xl:w-[420px] xl:opacity-30"
+      ></span> -->
+
+      <!-- <span
+        class="w-[40%] aspect-square absolute top-[14%] left-0 z-[-1] rounded-full blur-3xl bg-indigo-500 opacity-70 md:left-[-20%]"
+      ></span> -->
+      <!-- <span
+        class="w-[170px] aspect-square absolute z-[-1] left-[-20px] top-[700px] bg-indigo-500 rounded-full blur-3xl opacity-50 md:w-[280px] md:left-[-20%] md:top-[12%] lg:w-[40%] "
+      ></span> -->
+
+      <!-- <span
+        class="w-[140px] aspect-square absolute z-[-1] right-0 top-[1900px] bg-indigo-500 rounded-full blur-3xl opacity-50 md:w-[220px] md:opacity-40 xl:right-[-18%] xl:w-[520px] xl:opacity-25"
       ></span>
 
       <span
-        class="w-[140px] aspect-square absolute z-[-1] right-[-40px] bottom-[420px] bg-indigo-700 rounded-full blur-2xl opacity-50"
+        class="w-[180px] aspect-square absolute z-[-1] right-[-80px] top-[2600px] bg-indigo-500 rounded-full blur-3xl opacity-30 md:w-[220px] xl:right-[-10%] xl:w-[520px] xl:opacity-25"
       ></span>
 
       <span
-        class="w-[180px] aspect-square absolute z-[-1] right-[-80px] top-[2500px] bg-indigo-500 rounded-full blur-2xl opacity-30"
-      ></span>
+        id="1"
+        class="w-[200px] aspect-square absolute z-[-1] left-[-40px] bottom-[420px] bg-indigo-500 rounded-full blur-3xl opacity-50 md:w-[220px] md:opacity-40 md:left-[10%] md:bottom-[200px] xl:w-[320px] xl:opacity-25"
+      ></span> -->
 
       <div class="flex flex-col gap-[15px]">
         <h2
@@ -135,9 +142,11 @@ import MainLayout from "../../layouts/Layout.astro";
       </div>
 
       <div class="flex flex-col items-center gap-[15px] xl:gap-[30px]">
-        <div class="w-full xl:w-[1000px]">
+        <div
+          class="relative w-full xl:w-[1000px] before:w-[120%] before:absolute before:left-0 before:right-0 before:m-auto before:top-[-20%] before:z-[-3] before:aspect-square before:rounded-full before:blur-3xl before:opacity-50 before:bg-indigo-500 md:before:opacity-30"
+        >
           <img
-            class="object-cover rounded-xl"
+            class="object-cover rounded-xl z-10"
             src={kanbanMF.src}
             alt="Imagen de la aplicacion en dispositivos moviles."
           />
@@ -199,18 +208,22 @@ import MainLayout from "../../layouts/Layout.astro";
         </p>
       </div>
 
-      <div class="w-full flex justify-center">
-        <video
-          width="327"
-          height="168"
-          class="w-full h-fit object-fill rounded-xl xl:w-[1000px] xl:h-[562.5px]"
-          autoplay
-          loop
-          muted
-          playsinline
+      <div class="relative w-full flex justify-center">
+        <div
+          class="before:w-[90%] before:absolute before:left-0 before:right-0 before:m-auto before:top-[-30%] before:z-[-3] before:aspect-video before:rounded-full before:blur-3xl before:opacity-50 before:bg-indigo-500 md:before:opacity-20 md:before:w-[60%] lg:before:w-[60%] lg:before:opacity-20 lg:before:top-[-10%]"
         >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+          <video
+            width="327"
+            height="168"
+            class="w-full h-fit object-fill rounded-xl xl:w-[1000px] xl:h-[562.5px]"
+            autoplay
+            loop
+            muted
+            playsinline
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        </div>
       </div>
 
       <div class="flex justify-end">
@@ -237,7 +250,9 @@ import MainLayout from "../../layouts/Layout.astro";
         </div>
       </div>
 
-      <div class="flex justify-center">
+      <div
+        class="relative flex justify-center before:w-[90%] before:absolute before:left-0 before:right-0 before:m-auto before:bottom-[-5%] before:z-[-3] before:aspect-video before:rounded-full before:blur-3xl before:opacity-50 before:bg-indigo-500 md:before:opacity-30 md:before:w-[100%] md:before:bottom-[-20%] lg:before:w-[60%] lg:before:opacity-20"
+      >
         <div
           class="w-full flex flex-col items-center justify-center gap-[12px] py-[22px] rounded-xl bg-zinc-900 ring-1 ring-zinc-800 md:flex-row md:gap-[12px] lg:flex-row xl:gap-[24px] xl:w-[1000px]"
         >

@@ -16,7 +16,8 @@ export default {
 				'3xl': {'min': '1660px'},
 			},
 			aspectRatio : {
-				'mockup' : "4/3"
+				'mockup' : "4/3",
+				'phone' : "9/16"
 			}
 		},
 	},
