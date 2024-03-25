@@ -98,15 +98,17 @@ const { projectUrl } = Astro.props;
 </style>
 
 <script>
-  const navElement = document.querySelector("#nav-style") as HTMLElement;
+  document.addEventListener("astro:page-load", () => {
+    const navElement = document.querySelector("#nav-style") as HTMLElement;
 
-  document.addEventListener("scroll", () => {
-    const indexY = window.scrollY;
+    document.addEventListener("scroll", () => {
+      const indexY = window.scrollY;
 
-    if (indexY > 10) {
-      navElement.style.setProperty("--display-value", "visible");
-    } else {
-      navElement.style.setProperty("--display-value", "hidden");
-    }
+      if (indexY > 10) {
+        navElement.style.setProperty("--display-value", "visible");
+      } else {
+        navElement.style.setProperty("--display-value", "hidden");
+      }
+    });
   });
 </script>

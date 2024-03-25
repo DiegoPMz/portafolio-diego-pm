@@ -1,4 +1,3 @@
-// import { defineConfig } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
@@ -7,5 +6,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   //...
   integrations : [tailwind()],
-  prefetch : true
+  prefetch : {
+    defaultStrategy : 'viewport'
+  }
 });
