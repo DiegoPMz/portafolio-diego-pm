@@ -15,6 +15,7 @@ import IconJavascriptColor from "@assets/icons/IconJavascriptColor.astro";
 import IconReactColor from "@assets/icons/IconReactColor.astro";
 import IconReactRouterColor from "@assets/icons/IconReactRouterColor.astro";
 import IconViteColor from "@assets/icons/IconViteColor.astro";
+import { Image } from "astro:assets";
 import MainLayout from "../../layouts/Layout.astro";
 ---
 
@@ -33,10 +34,11 @@ import MainLayout from "../../layouts/Layout.astro";
     </h1>
 
     <div class="flex justify-center">
-      <img
+      <Image
         class="w-full aspect-mockup lg:w-[1000px] object-fill"
-        src={witwl.src}
+        src={witwl}
         alt="Imagen del proyecto desde una laptop"
+        loading="eager"
       />
     </div>
   </section>
@@ -128,17 +130,17 @@ import MainLayout from "../../layouts/Layout.astro";
         <div
           class="relative w-full xl:w-[1000px] before:w-[120%] before:absolute before:left-0 before:right-0 before:m-auto before:top-[-20%] before:z-[-3] before:aspect-square before:rounded-full before:blur-3xl before:opacity-50 before:bg-emerald-500 md:before:opacity-30"
         >
-          <img
+          <Image
             class="object-cover rounded-xl z-10"
-            src={witwmf.src}
-            alt="Imagen de la aplicacion en dispositivos moviles."
+            src={witwmf}
+            alt="Imagen de la aplicacion en dispositivos moviles"
           />
         </div>
         <div class="w-full xl:w-[1000px]">
-          <img
-            class="object-cover rounded-xl"
-            src={witwmd.src}
-            alt="Imagen de la aplicacion en navegador web."
+          <Image
+            class="object-cover rounded-xl z-10"
+            src={witwmd}
+            alt="Imagen de la aplicacion en navegador web"
           />
         </div>
       </div>
