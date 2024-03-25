@@ -3,7 +3,7 @@ const { title, des, url } = Astro.props;
 ---
 
 <article id="project-article">
-  <a href={url ?? "#"}>
+  <a data-astro-prefetch href={url ?? "#"}>
     <div id="bg-container" class="bg-cyan-900 rounded-[16px] relative">
       <div class="px-[24px] pt-[24px] lg:px-[32px] lg:pt-[32px]">
         <h3

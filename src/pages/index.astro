@@ -196,22 +196,24 @@ import EmailIcon from "@components/EmailIcon.astro";
 </style>
 
 <script>
-  const options = {
-    rootMargin: "0px",
-    threshold: 1.0,
-  };
+  document.addEventListener("astro:page-load", () => {
+    const options = {
+      rootMargin: "0px",
+      threshold: 1.0,
+    };
 
-  const callback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.transform = "translateY(0)";
-        entry.target.style.opacity = "1";
-      }
-    });
-  };
+    const callback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transform = "translateY(0)";
+          entry.target.style.opacity = "1";
+        }
+      });
+    };
 
-  const elements = document.querySelectorAll("#observer-style");
+    const elements = document.querySelectorAll("#observer-style");
 
-  const observer = new IntersectionObserver(callback, options);
-  elements.forEach((el) => observer.observe(el));
+    const observer = new IntersectionObserver(callback, options);
+    elements.forEach((el) => observer.observe(el));
+  });
 </script>
