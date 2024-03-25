@@ -2,7 +2,7 @@
 import witwl from "@assets/WITW/WITWL.png";
 import witwmd from "@assets/WITW/WITWMD.png";
 import witwmf from "@assets/WITW/WITWMF.png";
-import videoSrc from "@assets/WITW/WITWV.mp4";
+import videoSrc from "@assets/WITW/WITWV.webm";
 import videoD1 from "@assets/WITW/video1r.webm";
 import videoD2 from "@assets/WITW/video2r.webm";
 import videoD3 from "@assets/WITW/video3r.webm";
@@ -19,7 +19,10 @@ import { Image } from "astro:assets";
 import MainLayout from "../../layouts/Layout.astro";
 ---
 
-<MainLayout title="Where in the World -- Diego Pm">
+<MainLayout
+  title="Where in the World -- Diego Pm"
+  description={"Where in the world es un proyecto que ofrece información detallada sobre todos los países del mundo. Esto facilita a los usuarios encontrar dato relevantes sobre cualquier lugar de interés. Con esta aplicación, los usuarios pueden explorar países mediante una búsqueda individual o por región, lo que les permite obtener una visión más amplia y completa."}
+>
   <Navbar projectUrl="https://where-in-the-world-ashy.vercel.app/" />
   <section
     id="header-bg"

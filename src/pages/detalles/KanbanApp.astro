@@ -1,23 +1,28 @@
 ---
-import IconCSS from "@assets/kanbanApp/IconCSS.astro";
-import IconDNDKIT from "@assets/kanbanApp/IconDNDKIT.astro";
-import IconHTML from "@assets/kanbanApp/IconHTML.astro";
-import IconJavascript from "@assets/kanbanApp/IconJavascript.astro";
-import IconReact from "@assets/kanbanApp/IconReact.astro";
-import IconVite from "@assets/kanbanApp/IconVite.astro";
+import IconCSS from "@assets/icons/IconCSSColor.astro";
+import IconDNDKIT from "@assets/icons/IconDNDKITColor.astro";
+import IconHTML from "@assets/icons/IconHTMLColor.astro";
+import IconJavascript from "@assets/icons/IconJavascriptColor.astro";
+import IconReact from "@assets/icons/IconReactColor.astro";
+import IconVite from "@assets/icons/IconViteColor.astro";
+
 import FooterSection from "@components/FooterSection.astro";
 import Navbar from "@components/Navbar.astro";
-import videoD1 from "../../assets/kanbanApp/KVD.mp4";
-import videoD2 from "../../assets/kanbanApp/KVD2.mp4";
-import videoSrc from "../../assets/kanbanApp/kanbanApp.mp4";
+import { Image } from "astro:assets";
+import videoD1 from "../../assets/kanbanApp/KVD.webm";
+import videoD2 from "../../assets/kanbanApp/KVD2.webm";
+import videoSrc from "../../assets/kanbanApp/kanbanApp.webm";
 import kanbanAppLap from "../../assets/kanbanApp/newM.png";
 import kanbanMD from "../../assets/kanbanApp/otherMockup.png";
 import kanbanMF from "../../assets/kanbanApp/testMockup.png";
-import videoKMD from "../../assets/kanbanApp/videoKPD.mp4";
+import videoKMD from "../../assets/kanbanApp/videoKPD.webm";
 import MainLayout from "../../layouts/Layout.astro";
 ---
 
-<MainLayout title="KanbanApp -- Diego Pm">
+<MainLayout
+  title="KanbanApp -- Diego Pm"
+  description={"KanbanApp es un proyecto que facilita la organización de actividades en distintas tablas, ofreciendo una visualización clara y ordenada.Cada tabla se adapta a las necesidades específicas de la actividad que estamos gestionando. Dentro de cada una, podemos crear y mover elementos según su contexto y requisitos particulares. Asimismo, estos elementos pueden subdividirse para una gestión más detallada."}
+>
   <Navbar projectUrl="https://kanban-app-nine-xi.vercel.app/" />
   <section
     id="header-bg"
@@ -32,10 +37,11 @@ import MainLayout from "../../layouts/Layout.astro";
     </h1>
 
     <div class="flex justify-center">
-      <img
+      <Image
         class="w-full aspect-mockup lg:w-[1000px] object-fill"
-        src={kanbanAppLap.src}
+        src={kanbanAppLap}
         alt="Imagen del proyecto desde una laptop"
+        loading="eager"
       />
     </div>
   </section>
@@ -45,34 +51,6 @@ import MainLayout from "../../layouts/Layout.astro";
     <section
       class="w-full flex flex-col gap-[42px] lg:gap-[100px] 1xl:gap-[120px]"
     >
-      <!-- <span
-        class="w-[120px] aspect-square absolute z-[-1] right-[-70px] top-[350px] bg-indigo-700 rounded-full blur-2xl opacity-50 md:w-[220px] md:opacity-30 xl:right-[-4%] xl:w-[320px] xl:opacity-25"
-      ></span> -->
-
-      <!-- <span
-        class="w-[120px] aspect-square absolute z-[-1] right-[60px] top-[1200px] bg-indigo-700 rounded-full blur-2xl opacity-50 md:w-[220px] xl:right-[-10%] xl:w-[420px] xl:opacity-30"
-      ></span> -->
-
-      <!-- <span
-        class="w-[40%] aspect-square absolute top-[14%] left-0 z-[-1] rounded-full blur-3xl bg-indigo-500 opacity-70 md:left-[-20%]"
-      ></span> -->
-      <!-- <span
-        class="w-[170px] aspect-square absolute z-[-1] left-[-20px] top-[700px] bg-indigo-500 rounded-full blur-3xl opacity-50 md:w-[280px] md:left-[-20%] md:top-[12%] lg:w-[40%] "
-      ></span> -->
-
-      <!-- <span
-        class="w-[140px] aspect-square absolute z-[-1] right-0 top-[1900px] bg-indigo-500 rounded-full blur-3xl opacity-50 md:w-[220px] md:opacity-40 xl:right-[-18%] xl:w-[520px] xl:opacity-25"
-      ></span>
-
-      <span
-        class="w-[180px] aspect-square absolute z-[-1] right-[-80px] top-[2600px] bg-indigo-500 rounded-full blur-3xl opacity-30 md:w-[220px] xl:right-[-10%] xl:w-[520px] xl:opacity-25"
-      ></span>
-
-      <span
-        id="1"
-        class="w-[200px] aspect-square absolute z-[-1] left-[-40px] bottom-[420px] bg-indigo-500 rounded-full blur-3xl opacity-50 md:w-[220px] md:opacity-40 md:left-[10%] md:bottom-[200px] xl:w-[320px] xl:opacity-25"
-      ></span> -->
-
       <div class="flex flex-col gap-[15px]">
         <h2
           data-title="Tecnologías"
@@ -145,17 +123,17 @@ import MainLayout from "../../layouts/Layout.astro";
         <div
           class="relative w-full xl:w-[1000px] before:w-[120%] before:absolute before:left-0 before:right-0 before:m-auto before:top-[-20%] before:z-[-3] before:aspect-square before:rounded-full before:blur-3xl before:opacity-50 before:bg-indigo-500 md:before:opacity-30"
         >
-          <img
+          <Image
             class="object-cover rounded-xl z-10"
-            src={kanbanMF.src}
-            alt="Imagen de la aplicacion en dispositivos moviles."
+            src={kanbanMF}
+            alt="Imagen de la aplicacion en dispositivos moviles"
           />
         </div>
         <div class="w-full xl:w-[1000px]">
-          <img
+          <Image
             class="object-cover rounded-xl"
-            src={kanbanMD.src}
-            alt="Imagen de la aplicacion en navegador web."
+            src={kanbanMD}
+            alt="Imagen de la aplicacion en navegador web"
           />
         </div>
       </div>

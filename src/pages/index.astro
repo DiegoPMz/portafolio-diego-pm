@@ -1,8 +1,8 @@
 ---
 import GithubIcon from "@assets/GithubIcon.astro";
 import LinkedinIcon from "@assets/LinkedinIcon.astro";
-import kanbanApp from "@assets/kanbanAppWM.png";
-import worldM from "@assets/worldM.png";
+import kanbanApp from "@assets/kanbanAppWM.webp";
+import worldM from "@assets/worldM.webp";
 
 import LinksDesign from "@components/LinksDesign.astro";
 import ProjectCard from "@components/ProjectCard.astro";
@@ -12,10 +12,8 @@ import Layout from "../layouts/Layout.astro";
 import EmailButton from "@components/EmailButton.astro";
 import FooterSection from "@components/FooterSection.astro";
 import EmailIcon from "@components/EmailIcon.astro";
-// import SubtitleEffect from "@components/SubtitleEffect.astro";
 ---
 
-<!-- https://huemint.com/website-2/#palette=000000-ffffff-ec18e8-00fcfe -->
 <Layout>
   <div
     class="relative px-6 py-8 md:p-10 overflow-hidden xl:px-20 xl:pt-20 1xl:px-28 1xl:pt-28 3xl:px-40"
@@ -117,24 +115,27 @@ import EmailIcon from "@components/EmailIcon.astro";
           MIS PROYECTOS
         </h2>
 
-        <!-- <SubtitleEffect text={"MIS PROYECTOS"}> MIS PROYECTOS </SubtitleEffect> -->
-
         <div class="flex flex-col gap-16 items-center md:gap-32 1xl:gap-48">
           <ProjectCard
             url="/detalles/Where-In-The-World"
             title="Where in the world?"
+            des="Descubre Nuestro Planeta: Detalles y Curiosidades de Cada Rincón del Mundo."
           >
             <Image
-              class="lg:w-[80%] hover:scale-[1.02] transition-all ease-in duration-150"
+              class="lg:w-[80%] aspect-mockup hover:scale-[1.02] transition-all ease-in duration-150"
               src={worldM}
               alt="Proyecto 'Where in the world?'"
               loading="eager"
             />
           </ProjectCard>
 
-          <ProjectCard url="/detalles/KanbanApp" title="KanbanApp">
+          <ProjectCard
+            url="/detalles/KanbanApp"
+            title="KanbanApp"
+            des="Organiza tus Tareas de Forma Eficiente: Gestiona Actividades con Claridad y Flexibilidad."
+          >
             <Image
-              class="lg:w-[80%] hover:scale-[1.02] transition-all ease-in duration-150"
+              class="lg:w-[80%] aspect-mockup hover:scale-[1.02] transition-all ease-in duration-150"
               src={kanbanApp}
               alt="Proyecto 'KanbanApp'"
               loading="eager"

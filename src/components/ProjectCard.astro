@@ -1,17 +1,20 @@
 ---
-const { title, url } = Astro.props;
+const { title, des, url } = Astro.props;
 ---
 
-<!-- pl-[24px] py-[24px] -->
 <article id="project-article">
   <a href={url ?? "#"}>
     <div id="bg-container" class="bg-cyan-900 rounded-[16px] relative">
       <div class="px-[24px] pt-[24px] lg:px-[32px] lg:pt-[32px]">
-        <h3 class="font-semibold text-white text-2xl md:text-4xl md:pb-[8px]">
+        <h3
+          class="font-semibold text-white text-2xl md:text-4xl md:pb-[8px] 1xl:text-[44px] xl:pb-[1rem]"
+        >
           {title ?? "Framer templates"}
         </h3>
-        <p class="font-normal text-Gray text-[18px] pb-[24px] md:text-2xl">
-          Launch your new website in minutes.
+        <p
+          class="font-normal text-Gray text-[16px] pb-[24px] md:text-2xl 1xl:text-[28px] xl:w-[90%]"
+        >
+          {des ?? "Launch your new website in minutes."}
         </p>
 
         <div class="w-full flex justify-center">
