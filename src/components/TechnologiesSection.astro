@@ -234,7 +234,7 @@ const { id } = Astro.props;
 
     position: relative;
     z-index: 30;
-    background-color: #000;
+    background-color: var(--bg-color-main);
     overflow: hidden;
 
     padding: 0 24px;
@@ -261,7 +261,7 @@ const { id } = Astro.props;
     color: var(--txt-color-t);
     font-size: 30px;
     font-weight: 500;
-    text-align: center;
+    text-align: left;
     text-wrap: pretty;
   }
 
@@ -415,12 +415,12 @@ const { id } = Astro.props;
 
     .home-tech__title-ctn {
       display: flex;
-      justify-content: left;
+      justify-content: center;
     }
     .home-tech__title-txt {
-      text-align: left;
-      font-size: 32px;
-      width: 340px;
+      text-align: center;
+      font-size: 40px;
+      width: 400px;
     }
 
     .home-tech__sliders-general-ctn {
@@ -436,8 +436,8 @@ const { id } = Astro.props;
     }
 
     .home-tech__paragraph-txt {
-      width: 382px;
-      font-size: 20px;
+      width: 430px;
+      font-size: 24px;
     }
   }
   @media screen and (width >= 1200px) {
@@ -452,8 +452,8 @@ const { id } = Astro.props;
     }
 
     .home-tech__title-txt {
-      font-size: 40px;
-      width: 450px;
+      font-size: 50px;
+      width: 500px;
     }
 
     .home-tech__sliders-general-ctn {
@@ -470,6 +470,8 @@ const { id } = Astro.props;
 
     .home-tech__paragraph-txt {
       text-align: left;
+      width: 540px;
+      font-size: 30px;
     }
   }
 </style>
