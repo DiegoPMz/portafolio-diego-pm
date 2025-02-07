@@ -25,7 +25,6 @@ import IconVitest from "@assets/icons/IconVitest.astro";
 import IconVscode from "@assets/icons/IconVscode.astro";
 import IconZod from "@assets/icons/IconZod.astro";
 import IconZustand from "@assets/icons/IconZustand.astro";
-import { undefined } from "astro:schema";
 
 interface Props {
   id?: string;
@@ -232,8 +231,6 @@ const { id } = Astro.props;
     width: 100%;
     min-height: 100dvh;
 
-    position: relative;
-    z-index: 30;
     background-color: var(--bg-color-main);
     overflow: hidden;
 
@@ -243,7 +240,7 @@ const { id } = Astro.props;
     justify-content: space-evenly;
 
     position: sticky;
-    top: 0;
+    z-index: 30;
   }
   .ctn-home-tech::before {
     content: "";
@@ -313,7 +310,6 @@ const { id } = Astro.props;
     gap: var(--i-gap);
 
     animation: infinite-slider 28s linear infinite;
-    animation-play-state: var(--hover-animation);
 
     padding: 24px 0;
   }

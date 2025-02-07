@@ -74,16 +74,15 @@ const { id } = Astro.props;
     width: 100%;
     min-height: 100dvh;
 
-    position: sticky;
-    top: 0;
-    z-index: 40;
-
-    padding: 60px 24px;
+    padding: 60px 24px 100px 24px;
     display: flex;
     flex-direction: column;
     gap: 60px;
 
     background-color: var(--bg-color-main);
+
+    position: sticky;
+    z-index: 40;
   }
   .project-main-ctn::before {
     content: "";
@@ -196,15 +195,15 @@ const { id } = Astro.props;
     }
 
     .projects-card__image-img--devLinks {
-      background-image: url(../assets/mockup-devlinks.png);
+      background-image: url(../assets/images/mockup-devlinks.png);
     }
 
     .projects-card__image-img--kanbanApp {
-      background-image: url(../assets/mockup-kanbanApp.png);
+      background-image: url(../assets/images/mockup-kanbanApp.png);
     }
 
     .projects-card__image-img--witw {
-      background-image: url(../assets/mockup-witw.png);
+      background-image: url(../assets/images/mockup-witw.png);
     }
   }
 
@@ -267,6 +266,7 @@ const { id } = Astro.props;
     }
 
     .main__projects-card {
+      max-width: 622px;
       padding: 32px 0px 0px 32px;
       gap: 20px;
     }
@@ -316,6 +316,7 @@ const { id } = Astro.props;
       flex-direction: row;
     }
     .main__projects-card {
+      max-width: none;
     }
   }
 
