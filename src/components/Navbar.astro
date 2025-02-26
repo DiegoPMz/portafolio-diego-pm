@@ -4,51 +4,88 @@ import IconArrow from "@assets/IconArrow.astro";
 const { projectUrl } = Astro.props;
 ---
 
-<nav
-  id="nav-style"
-  class="fixed top-0 flex z-[600] justify-end gap-[24px] items-center w-full p-[24px] xl:py-[28px] 1xl:py-[32px] 3xl:px-[140px]"
->
-  <a
-    class="relative flex items-center gap-[6px] text-white bg-black py-[0.3rem] px-[0.5rem] rounded-full text-base font-normal"
-    href="/"
-  >
-    <div class="animate-pulse">
+<nav id="ran" class="p-projects-navbar">
+  <a href="/" class="p-projects-navbar__goBack">
+    <div class="navbar__goBack-icon">
       <IconArrow />
     </div>
-    <span> Regresar </span>
+    <span class="navbar__goBack-txt"> Regresar </span>
   </a>
   <a
     id="link-style"
-    class="text-white text-base font-normal"
+    class="p-projects-navbar__project"
     href={projectUrl ?? "#"}
     target="_blank"
   >
-    <span class="relative z-50"> Visitar </span>
+    <span class="navbar__project-txt"> Visitar </span>
   </a>
 </nav>
 
 <style>
-  #nav-style::before {
+  .p-projects-navbar {
+    position: fixed;
+    top: 0;
+    display: flex;
+    z-index: 600;
+    justify-content: flex-end;
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+    padding: 24px;
+  }
+
+  .p-projects-navbar::before {
     content: "";
     position: absolute;
     inset: 0;
 
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 32px 0 rgba(31, 47, 135, 0.37);
+    background: rgba(255, 255, 255, 0.027);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    visibility: var(--display-value, hidden);
+    transition: opacity 0.5s ease-out;
+    opacity: var(--display-value, 1);
+  }
+  .nav-visible {
+    --display-value: 1;
+  }
+  .nav-hidden {
+    --display-value: 0;
   }
 
-  #link-style {
+  .p-projects-navbar__goBack {
+    display: flex;
+    align-items: center;
+    justify-content:;
+    gap: 6px;
+    color: white;
+    background-color: black;
+    padding: 0.3rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+  }
+
+  .navbar__goBack-icon {
+    animation: pulse 2s infinite;
+
+    svg {
+      aspect-ratio: 1/1;
+      width: 12px;
+      fill: var(--txt-color-t);
+    }
+  }
+
+  .p-projects-navbar__project {
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
     position: relative;
     z-index: 50;
     border-radius: 16px;
-
     width: fit-content;
     padding: 0.3rem 1rem;
-
     background: linear-gradient(
       90deg,
       hsla(254, 68%, 9%, 1) 0%,
@@ -58,26 +95,23 @@ const { projectUrl } = Astro.props;
     );
   }
 
-  #link-style::before {
+  .p-projects-navbar__project::before {
     content: "";
-    z-index: 20;
-
+    z-index: -1;
     position: absolute;
     inset: 1px;
     background-color: #000;
     border-radius: 16px;
   }
 
-  #link-style:hover::before {
+  .p-projects-navbar__project:hover::before {
     opacity: 0.7;
   }
 
-  #link-style::after {
+  .p-projects-navbar__project::after {
     content: "";
-
     position: absolute;
     inset: 0px;
-
     border-radius: 16px;
     background: linear-gradient(
       90deg,
@@ -86,29 +120,65 @@ const { projectUrl } = Astro.props;
       hsla(320, 77%, 55%, 1) 66%,
       hsla(316, 41%, 93%, 1) 100%
     );
-
     transition: 0.5s;
     opacity: 0;
     filter: blur(20px);
   }
 
-  #link-style:hover::after {
+  .p-projects-navbar__project:hover::after {
     opacity: 1;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .p-projects-navbar {
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .p-projects-navbar {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .p-projects-navbar {
+      padding-left: 140px;
+      padding-right: 140px;
+    }
   }
 </style>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const navElement = document.querySelector("#nav-style") as HTMLElement;
+  const navElement = document.querySelector(".p-projects-navbar");
+  const toggleNavbarVisibility = () => {
+    if (!navElement) return;
+    const scrollPosition = window.scrollY;
 
-    document.addEventListener("scroll", () => {
-      const indexY = window.scrollY;
+    if (scrollPosition > 10) {
+      navElement.classList.add("nav-visible");
+      navElement.classList.remove("nav-hidden");
+    } else {
+      navElement.classList.add("nav-hidden");
+      navElement.classList.remove("nav-visible");
+    }
+  };
 
-      if (indexY > 10) {
-        navElement.style.setProperty("--display-value", "visible");
-      } else {
-        navElement.style.setProperty("--display-value", "hidden");
-      }
-    });
-  });
+  if (navElement) {
+    document.addEventListener("scroll", toggleNavbarVisibility);
+  } else {
+    document.removeEventListener("scroll", toggleNavbarVisibility);
+  }
 </script>
