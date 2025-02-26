@@ -1,12 +1,5 @@
----
-interface Props {
-  id?: string;
-}
-
-const { id } = Astro.props;
----
-
-<section id={id} class="project-main-ctn">
+<section class="project-main-ctn">
+  <div class="project-main__overlay"></div>
   <div class="project-main__introduction">
     <div class="project-title">
       <h2 class="project-title__txt">Mis proyectos</h2>
@@ -72,7 +65,7 @@ const { id } = Astro.props;
 <style>
   .project-main-ctn {
     width: 100%;
-    min-height: 100dvh;
+    min-height: 100vh;
 
     padding: 60px 24px 100px 24px;
     display: flex;
@@ -81,19 +74,19 @@ const { id } = Astro.props;
 
     background-color: var(--bg-color-main);
 
-    position: sticky;
-    z-index: 40;
+    position: relative;
+    z-index: 30;
   }
-  .project-main-ctn::before {
-    content: "";
-    inset: 0;
 
+  .project-main__overlay {
     z-index: -1;
     position: absolute;
+    inset: 0;
 
     background-image: url("../assets/gradients/home-gradient-projects-sm.svg");
     background-position: top;
     background-size: cover;
+    opacity: 0.6;
   }
 
   .project-main__introduction {
@@ -225,13 +218,14 @@ const { id } = Astro.props;
   /* MEDIA QUERIES*/
   @media screen and (width >= 700px) {
     .project-main-ctn {
-      padding: 80px 0;
+      padding-top: 80px;
+      padding-bottom: 140px;
       gap: 80px;
       justify-content: center;
       align-items: center;
     }
-    .project-main-ctn::before {
-      opacity: 0.7;
+
+    .project-main__overlay {
       background-image: url("../assets/gradients/home-gradient-projects-md.svg");
     }
 
@@ -292,7 +286,8 @@ const { id } = Astro.props;
       padding: 0;
       gap: 100px;
     }
-    .project-main-ctn::before {
+
+    .project-main__overlay {
       background-image: url("../assets/gradients/home-gradient-projects-lg.svg");
     }
 
@@ -321,9 +316,78 @@ const { id } = Astro.props;
   }
 
   @media screen and (width >= 1600px) {
+    .project-main-ctn {
+      padding-bottom: 40px;
+      gap: 100px;
+    }
+
     .project-main__projects {
-      width: 80%;
-      gap: clamp(24px, 5vw, 64px);
+      width: 90%;
+      max-width: 1424px;
+      gap: 48px;
     }
   }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const cards = document.querySelectorAll(".main__projects-card");
+
+  const animation = gsap.from(".project-main__overlay", {
+    opacity: 0,
+    duration: 2,
+    ease: "power2.inOut",
+  });
+
+  ScrollTrigger.create({
+    trigger: ".project-main__overlay",
+    animation: animation,
+
+    toggleActions: "play reverse play reverse",
+    start: "10% 30% ",
+    end: "100% 40%",
+  });
+
+  const timelineTxt = gsap
+    .timeline()
+    .from(".project-title__txt", {
+      opacity: 0,
+      x: -50,
+      ease: "sine",
+      duration: 0.7,
+    })
+    .from(".project-paragraph-txt", {
+      opacity: 0,
+      y: 30,
+      ease: "sine",
+      duration: 0.7,
+    });
+
+  ScrollTrigger.create({
+    trigger: ".project-main-ctn",
+    animation: timelineTxt,
+
+    toggleActions: "play reverse play reverse",
+    start: "top 30% ",
+    end: "100% 40%",
+  });
+
+  cards.forEach((el) => {
+    const animationCards = gsap.from(el, {
+      opacity: 0,
+      y: 30,
+      ease: "power3",
+      duration: 1.5,
+    });
+
+    ScrollTrigger.create({
+      trigger: el,
+      animation: animationCards,
+      toggleActions: "play reverse play reverse",
+      start: "top 70%",
+      end: "100% top",
+    });
+  });
+</script>

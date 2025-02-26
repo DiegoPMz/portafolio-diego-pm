@@ -25,15 +25,10 @@ import IconVitest from "@assets/icons/IconVitest.astro";
 import IconVscode from "@assets/icons/IconVscode.astro";
 import IconZod from "@assets/icons/IconZod.astro";
 import IconZustand from "@assets/icons/IconZustand.astro";
-
-interface Props {
-  id?: string;
-}
-
-const { id } = Astro.props;
 ---
 
-<section id={id} class="ctn-home-tech">
+<section class="ctn-home-tech">
+  <div class="home-tech__overlay"></div>
   <div class="home-tech__title-ctn">
     <h2 class="home-tech__title-txt">Tecnologías detrás de mis Proyectos</h2>
   </div>
@@ -46,6 +41,38 @@ const { id } = Astro.props;
         --quantity : 10;
       "
     >
+      <ul id="slider-one-list" class="home-tech__slider-list">
+        <li class="home-tech__slider-item">
+          <IconHtml5 />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconCss />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconJavascript />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconReact />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconTypescript />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconNodejs />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconExpressjs />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconJava />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconSpring />
+        </li>
+        <li class="home-tech__slider-item">
+          <IconMongodb />
+        </li>
+      </ul>
       <ul id="slider-one-list" class="home-tech__slider-list">
         <li class="home-tech__slider-item">
           <IconHtml5 />
@@ -240,10 +267,11 @@ const { id } = Astro.props;
     justify-content: space-evenly;
 
     position: sticky;
+    top: 0;
     z-index: 30;
   }
-  .ctn-home-tech::before {
-    content: "";
+
+  .home-tech__overlay {
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -251,7 +279,7 @@ const { id } = Astro.props;
     background-image: url(../assets/gradients/home-gradient-tech-sm.svg);
     background-position: center;
     background-size: cover;
-    opacity: 0.7;
+    opacity: 0.6;
   }
 
   .home-tech__title-txt {
@@ -265,7 +293,7 @@ const { id } = Astro.props;
   .home-tech__sliders-general-ctn {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
   }
 
   .home-tech__slider {
@@ -311,7 +339,7 @@ const { id } = Astro.props;
 
     animation: infinite-slider 28s linear infinite;
 
-    padding: 24px 0;
+    padding-bottom: 24px;
   }
   [data-reverse] {
     animation-name: infinite-slider-reverse;
@@ -377,13 +405,13 @@ const { id } = Astro.props;
 
   /* MEDIA QUERIES*/
   @media screen and (width >= 700px) {
-    .ctn-home-tech::before {
+    .home-tech__overlay {
       background-image: url(../assets/gradients/home-gradient-tech-md.svg);
-      opacity: 0.85;
     }
 
     .ctn-home-tech {
-      padding: 0 34px;
+      padding-inline: 34px;
+      padding-bottom: 40px;
     }
 
     .home-tech__slider::after {
@@ -428,7 +456,7 @@ const { id } = Astro.props;
       --height: 58px;
       --i-gap: 80px;
 
-      padding: 28px 0;
+      padding-bottom: 28px;
     }
 
     .home-tech__paragraph-txt {
@@ -437,14 +465,12 @@ const { id } = Astro.props;
     }
   }
   @media screen and (width >= 1200px) {
-    .ctn-home-tech::before {
+    .home-tech__overlay {
       background-image: url(../assets/gradients/home-gradient-tech-lg.svg);
-      background-position: center;
-      background-size: cover;
-      opacity: 0.75;
     }
+
     .ctn-home-tech {
-      padding: 0 80px;
+      padding-inline: 80px;
     }
 
     .home-tech__title-txt {
@@ -461,7 +487,7 @@ const { id } = Astro.props;
       --height: 68px;
       --i-gap: 100px;
 
-      padding: 40px 0;
+      padding-bottom: 40px;
     }
 
     .home-tech__paragraph-txt {
@@ -473,22 +499,44 @@ const { id } = Astro.props;
 </style>
 
 <script>
-  const ctn_slider_one = document.querySelector("#slider-one");
-  const ctn_slider_list = document.querySelector("#slider-one-list");
-  const vw = window.innerWidth;
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  addEventListener("load", (e) => {
-    if (!ctn_slider_list) return;
+  const overlayAnimation = gsap.from(".home-tech__overlay", {
+    opacity: 0,
+    duration: 2,
+    ease: "power2.inOut",
+  });
 
-    const listWidth =
-      parseInt(getComputedStyle(ctn_slider_list).getPropertyValue("width")) / 2;
-    const sliderListNumber = Math.round(vw / listWidth);
+  ScrollTrigger.create({
+    trigger: ".ctn-home-tech",
+    animation: overlayAnimation,
+    toggleActions: "play reverse play reverse",
+    start: "10% 30% ",
+    end: "100% 40%",
+  });
 
-    for (let index = 0; index < sliderListNumber; index++) {
-      const newList = ctn_slider_list.cloneNode(true) as Element;
-      newList?.setAttribute("aria-hidden", "true");
+  const timeline = gsap
+    .timeline()
 
-      ctn_slider_one?.appendChild(newList);
-    }
+    .from(".home-tech__title-txt", {
+      opacity: 0,
+      x: 25,
+      ease: "sine",
+      duration: 0.8,
+    })
+    .from(".home-tech__paragraph-txt", {
+      opacity: 0,
+      y: 30,
+      ease: "back",
+      duration: 0.8,
+    });
+
+  ScrollTrigger.create({
+    trigger: ".ctn-home-tech",
+    animation: timeline,
+    toggleActions: "play reverse play reverse",
+    start: "top 30% ",
+    end: "100% 90%",
   });
 </script>

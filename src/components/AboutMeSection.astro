@@ -10,6 +10,7 @@ import { Image } from "astro:assets";
 ---
 
 <section class="aboutMe-main-ctn">
+  <div class="aboutMe__overlay"></div>
   <div class="aboutMe-content-ctn">
     <h2 class="aboutMe-content__title">Sobre mí</h2>
     <div class="aboutMe-content__details">
@@ -113,24 +114,21 @@ import { Image } from "astro:assets";
 
     background-color: var(--bg-color-main);
 
-    position: sticky;
+    position: relative;
     top: 0;
-    z-index: 50;
-    overflow-x: hidden;
+    z-index: 40;
   }
-  .aboutMe-main-ctn::before {
-    content: "";
-
+  .aboutMe__overlay {
     position: absolute;
     inset: 0;
-    top: 0;
 
     z-index: -1;
+    background-color: black;
 
     background-image: url(../assets/gradients/home-gradient-aboutMe-sm.svg);
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.8;
+    opacity: 0.5;
   }
 
   .aboutMe-content-ctn {
@@ -282,13 +280,14 @@ import { Image } from "astro:assets";
   }
 
   @media screen and (width >= 700px) {
-    .aboutMe-main-ctn::before {
+    .aboutMe__overlay {
       background-image: url(../assets/gradients/home-gradient-aboutMe-md.svg);
     }
 
     .aboutMe-content-ctn {
       align-items: center;
-      padding: 80px 0 100px 0;
+      padding-top: 80px;
+      padding-bottom: 140px;
     }
 
     .aboutMe-content__title {
@@ -333,13 +332,13 @@ import { Image } from "astro:assets";
     }
   }
   @media screen and (width >= 1200px) {
-    .aboutMe-main-ctn::before {
+    .aboutMe__overlay {
       background-image: url(../assets/gradients/home-gradient-aboutMe-lg.svg);
-      opacity: 0.74;
     }
 
     .aboutMe-content-ctn {
       width: 90%;
+      padding-top: 120px;
     }
 
     .aboutMe-content__title {
@@ -391,3 +390,50 @@ import { Image } from "astro:assets";
     }
   }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.from(".aboutMe__overlay", {
+    opacity: 0,
+    duration: 2,
+    ease: "power2.inOut",
+    scrollTrigger: {
+      trigger: ".aboutMe__overlay",
+      toggleActions: "play reverse play reverse",
+      start: "10% 30% ",
+      end: "100% 40%",
+    },
+  });
+
+  const timelineTxt = gsap
+    .timeline()
+    .from(".aboutMe-content__title", {
+      opacity: 0,
+      x: -50,
+      ease: "sine",
+      duration: 0.7,
+    })
+    .from(".content__details-img", {
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.5,
+      ease: "sine",
+    })
+    .from(".content__details-paragraph-ctn", {
+      opacity: 0,
+      y: 30,
+      ease: "back",
+      duration: 0.8,
+    });
+
+  ScrollTrigger.create({
+    trigger: ".aboutMe-main-ctn",
+    animation: timelineTxt,
+
+    toggleActions: "play reverse play reverse",
+    start: "top 40% ",
+    end: "100% 40%",
+  });
+</script>

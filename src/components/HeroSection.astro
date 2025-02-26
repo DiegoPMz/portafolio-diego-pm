@@ -2,15 +2,9 @@
 import IconEmail from "@assets/icons/IconEmail.astro";
 import IconGithub from "@assets/icons/IconGithub.astro";
 import AppButton from "./AppButton.astro";
-
-interface Props {
-  id?: string;
-}
-
-const { id } = Astro.props;
 ---
 
-<section id={id} class="ctn-home__introduction">
+<section class="ctn-home__introduction">
   <div class="introduction__main">
     <div class="introduction_general-title">
       <div class="intro-title__container">
@@ -76,7 +70,10 @@ const { id } = Astro.props;
     justify-content: center;
 
     position: sticky;
+    top: 0;
     z-index: 10;
+
+    background-color: var(--bg-color-main);
   }
   .ctn-home__introduction::before {
     content: "";
@@ -98,7 +95,6 @@ const { id } = Astro.props;
     display: flex;
     flex-direction: column;
   }
-  /*  */
 
   .ctn-links-draft {
     display: flex;
@@ -116,7 +112,6 @@ const { id } = Astro.props;
     }
   }
 
-  /*  */
   .intro-title__container {
     display: flex;
     flex-direction: column;
@@ -127,7 +122,6 @@ const { id } = Astro.props;
     font-size: 37px;
     font-weight: 700;
   }
-  /*  */
 
   .intro-latter-title__container {
     display: flex;
@@ -152,8 +146,6 @@ const { id } = Astro.props;
     background-size: cover;
     border-radius: clamp(24px, 20vw, 90px);
   }
-
-  /*  */
 
   .introduction__paragraph-subCtn {
     display: flex;
@@ -201,8 +193,6 @@ const { id } = Astro.props;
       width: 80%;
     }
 
-    /*  */
-
     .ctn-links-draft {
       gap: 10px;
       padding-bottom: 80px;
@@ -212,7 +202,6 @@ const { id } = Astro.props;
       }
     }
 
-    /*  */
     .intro-title__container {
       flex-direction: row;
       justify-content: center;
@@ -221,7 +210,6 @@ const { id } = Astro.props;
     .intro-title__text {
       font-size: 70px;
     }
-    /*  */
 
     .intro-title__text--center {
       width: 864px;
@@ -230,8 +218,6 @@ const { id } = Astro.props;
     .intro-title__image {
       width: 150px;
     }
-
-    /*  */
 
     .introduction__paragraph-subCtn {
       display: flex;
@@ -258,3 +244,41 @@ const { id } = Astro.props;
     }
   }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const titleEl = document.querySelectorAll(".intro-title__text");
+  const paragraphEl = document.querySelectorAll(".introduction__paragraph");
+  const img = document.querySelectorAll(".intro-title__image");
+
+  const timeline = gsap
+    .timeline()
+    .from(titleEl, {
+      y: -30,
+      opacity: 0,
+      ease: "sine",
+      duration: 0.8,
+    })
+    .from(img, {
+      opacity: 0,
+      ease: "sine",
+      duration: 0.3,
+    })
+    .from(paragraphEl, {
+      y: 40,
+      opacity: 0,
+      ease: "back",
+      duration: 0.9,
+    });
+
+  ScrollTrigger.create({
+    trigger: ".ctn-home__introduction",
+    animation: timeline,
+    toggleActions: "play reverse play reset",
+    start: "top 1% ",
+    end: "100% 40%",
+  });
+</script>
