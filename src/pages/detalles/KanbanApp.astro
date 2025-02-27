@@ -1,316 +1,690 @@
 ---
-import IconCSS from "@assets/icons/IconCSSColor.astro";
+import IconCSS from "@assets/icons/IconCss.astro";
 import IconDNDKIT from "@assets/icons/IconDNDKITColor.astro";
-import IconHTML from "@assets/icons/IconHTMLColor.astro";
-import IconJavascript from "@assets/icons/IconJavascriptColor.astro";
-import IconReact from "@assets/icons/IconReactColor.astro";
-import IconVite from "@assets/icons/IconViteColor.astro";
+import IconHTML from "@assets/icons/IconHtml5.astro";
+import IconJavascript from "@assets/icons/IconJavascript.astro";
+import IconReact from "@assets/icons/IconReact.astro";
+import IconVite from "@assets/icons/IconVitejs.astro";
 
+import videoSrc from "@assets/kanbanApp/kanbanApp.webm";
+import kanbanAppLap from "@assets/kanbanApp/newM.png";
+import kanbanMD from "@assets/kanbanApp/otherMockup.png";
+import kanbanMF from "@assets/kanbanApp/testMockup.png";
 import FooterSection from "@components/FooterSection.astro";
 import Navbar from "@components/Navbar.astro";
 import { Image } from "astro:assets";
+import MainLayout from "src/layouts/MainLayout.astro";
 import videoD1 from "../../assets/kanbanApp/KVD.webm";
-import videoD2 from "../../assets/kanbanApp/KVD2.webm";
-import videoSrc from "../../assets/kanbanApp/kanbanApp.webm";
-import kanbanAppLap from "../../assets/kanbanApp/newM.png";
-import kanbanMD from "../../assets/kanbanApp/otherMockup.png";
-import kanbanMF from "../../assets/kanbanApp/testMockup.png";
-import videoKMD from "../../assets/kanbanApp/videoKPD.webm";
-import MainLayout from "../../layouts/Layout.astro";
+import videoD3 from "../../assets/kanbanApp/KVD2.webm";
+import videoD2 from "../../assets/kanbanApp/videoKPD.webm";
 ---
 
 <MainLayout
-  title="KanbanApp -- Diego Pm"
-  description={"KanbanApp es un proyecto que facilita la organización de actividades en distintas tablas, ofreciendo una visualización clara y ordenada.Cada tabla se adapta a las necesidades específicas de la actividad que estamos gestionando. Dentro de cada una, podemos crear y mover elementos según su contexto y requisitos particulares. Asimismo, estos elementos pueden subdividirse para una gestión más detallada."}
+  pageTitle="KanbanApp -- Diego Pm"
+  description="KanbanApp es un proyecto que facilita la organización de actividades en distintas tablas, ofreciendo una visualización clara y ordenada.Cada tabla se adapta a las necesidades específicas de la actividad que estamos gestionando. Dentro de cada una, podemos crear y mover elementos según su contexto y requisitos particulares. Asimismo, estos elementos pueden subdividirse para una gestión más detallada."
 >
   <Navbar projectUrl="https://kanban-app-nine-xi.vercel.app/" />
-  <section
-    id="header-bg"
-    class="bg-gradient-to-b from-indigo-700 relative pt-[120px] md:pt-[60px]"
-  >
-    <h1
-      data-title="KanbanApp"
-      id="title_style"
-      class="text-white text-[60px] font-bold text-center md:text-[90px] lg:text-[120px]"
-    >
-      KanbanApp
-    </h1>
+  <div style=`--pageColor : #ff5125`>
+    <section id="header-bg" class="p-project__container">
+      <h1 data-title="KanbanApp" id="title_style" class="p-project__title">
+        KanbanApp
+      </h1>
 
-    <div class="flex justify-center">
-      <Image
-        class="w-full aspect-mockup lg:w-[1000px] object-fill"
-        src={kanbanAppLap}
-        alt="Imagen del proyecto desde una laptop"
-        loading="eager"
-      />
-    </div>
-  </section>
-  <div
-    class="w-full overflow-x-hidden relative p-[24px] md:p-[36px] lg:px-[60px] xl:px-[160px]"
-  >
-    <section
-      class="w-full flex flex-col gap-[42px] lg:gap-[100px] 1xl:gap-[120px]"
-    >
-      <div class="flex flex-col gap-[15px]">
-        <h2
-          data-title="Tecnologías"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Tecnologías
-        </h2>
-        <ul class="flex gap-[12px] items-center">
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconHTML />
-          </li>
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconCSS />
-          </li>
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconJavascript />
-          </li>
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconReact />
-          </li>
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconVite />
-          </li>
-          <li class="w-[70px] h-fit shadow-gray-900 shadow-md md:w-[100px]">
-            <IconDNDKIT />
-          </li>
-        </ul>
-      </div>
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Descripción"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Descripción
-        </h2>
-        <p
-          class="text-Gray text-[16px] font-normal md:text-[18px] xl:w-[60%] 2xl:w-[50%]"
-        >
-          KanbanApp es un proyecto que facilita la organización de actividades
-          en distintas tablas, ofreciendo una visualización clara y ordenada.
-          Cada tabla se adapta a las necesidades específicas de la actividad que
-          estamos gestionando. Dentro de cada una, podemos crear y mover
-          elementos según su contexto y requisitos particulares. Asimismo, estos
-          elementos pueden subdividirse para una gestión más detallada.
-        </p>
-      </div>
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Rol y responsabilidades"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Rol y responsabilidades
-        </h2>
-        <p
-          class="text-Gray text-[16px] font-normal md:text-[18px] xl:w-[60%] 2xl:w-[50%]"
-        >
-          En mi búsqueda de proyectos atractivos y divertidos de realizar, me
-          encontré con el proyecto KanbanApp. Utilicé el diseño proporcionado
-          por “Frontend Mentor”, donde encontré los estilos base. Con este
-          diseño como punto de partida, procedí a trabajar en el proyecto. Elegí
-          las tecnologías adecuadas, organicé el espacio de desarrollo, realicé
-          la maquetación y programé la aplicación en su totalidad.
-        </p>
-      </div>
-
-      <div class="flex flex-col items-center gap-[15px] xl:gap-[30px]">
-        <div
-          class="relative w-full xl:w-[1000px] before:w-[120%] before:absolute before:left-0 before:right-0 before:m-auto before:top-[-20%] before:z-[-3] before:aspect-square before:rounded-full before:blur-3xl before:opacity-50 before:bg-indigo-500 md:before:opacity-30"
-        >
-          <Image
-            class="object-cover rounded-xl z-10"
-            src={kanbanMF}
-            alt="Imagen de la aplicacion en dispositivos moviles"
-          />
-        </div>
-        <div class="w-full xl:w-[1000px]">
-          <Image
-            class="object-cover rounded-xl"
-            src={kanbanMD}
-            alt="Imagen de la aplicacion en navegador web"
-          />
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Proceso de desarrollo"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Proceso de desarrollo
-        </h2>
-
-        <div class="flex flex-col gap-[12px] xl:w-[60%] 2xl:w-[50%]">
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            Al comenzar el proyecto, mi primer objetivo fue desglosar la lógica
-            detrás del mismo. Para esta tarea, utilicé una herramienta llamada
-            "Excalidraw", que me permitió visualizar los conceptos y las
-            diferentes partes que conforman el proyecto de manera clara y
-            organizada.
-          </p>
-
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            Una vez establecido el enfoque para la lógica principal, procedí a
-            definir las tecnologías que utilizaría para llevar a cabo el
-            proyecto. Siempre mantuve como prioridad la reducción de
-            dependencias al mínimo necesario, con el fin de garantizar la
-            escalabilidad y la simplicidad en el desarrollo.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Desafíos y soluciones"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Desafíos y soluciones
-        </h2>
-        <p
-          class="text-Gray text-[16px] font-normal md:text-[18px] xl:w-[60%] 2xl:w-[50%]"
-        >
-          Uno de los desafíos principales al realizar este proyecto fue crear un
-          estado global, ya que había demasiada dependencia de datos entre un
-          gran número de componentes. Opté por utilizar solo hooks nativos de
-          React para esto, mediante el uso de un único useReducer. Este
-          suministraría a múltiples contextos las funciones para modificar el
-          estado correspondiente.
-        </p>
-      </div>
-
-      <div class="relative w-full flex justify-center">
-        <div
-          class="before:w-[90%] before:absolute before:left-0 before:right-0 before:m-auto before:top-[-30%] before:z-[-3] before:aspect-video before:rounded-full before:blur-3xl before:opacity-50 before:bg-indigo-500 md:before:opacity-20 md:before:w-[60%] lg:before:w-[60%] lg:before:opacity-20 lg:before:top-[-10%]"
-        >
-          <video
-            width="327"
-            height="168"
-            class="w-full h-fit object-fill rounded-xl xl:w-[1000px] xl:h-[562.5px]"
-            autoplay
-            loop
-            muted
-            playsinline
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-        </div>
-      </div>
-
-      <div class="flex justify-end">
-        <div class="flex flex-col gap-[12px] xl:w-[60%] 2xl:w-[50%]">
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            Otro problema que enfrenté fue la necesidad de reescribir una lógica
-            extensa para guardar los datos actualizados en el localStorage. Lo
-            resolví creando un helper que validaría si existen datos almacenados
-            en el localStorage con una clave/valor específica. En caso de no
-            existir, el helper colocaría los valores pasados en el localStorage.
-          </p>
-          <p
-            class="text-Gray text-[16px] font-normal text-pretty md:text-[18px]"
-          >
-            Además, tuve que validar los datos ingresados en los respectivos
-            componentes que modificaban el estado. La falta de esta validación
-            permitía enviar datos inválidos o nulos. Por ello, desarrollé
-            helpers que validaban los datos según el apartado que se estuviera
-            modificando (creación de la tabla, actualización de la tabla,
-            creación/actualización de tareas). Estos helpers también se
-            encargaban de resaltar en rojo el input que contenía el error y de
-            mostrar un mensaje explicativo sobre el error cometido.
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="relative flex justify-center before:w-[90%] before:absolute before:left-0 before:right-0 before:m-auto before:bottom-[-5%] before:z-[-3] before:aspect-video before:rounded-full before:blur-3xl before:opacity-50 before:bg-indigo-500 md:before:opacity-30 md:before:w-[100%] md:before:bottom-[-20%] lg:before:w-[60%] lg:before:opacity-20"
-      >
-        <div
-          class="w-full flex flex-col items-center justify-center gap-[12px] py-[22px] rounded-xl bg-zinc-900 ring-1 ring-zinc-800 md:flex-row md:gap-[12px] lg:flex-row xl:gap-[24px] xl:w-[1000px]"
-        >
-          <video
-            class="w-[90%] object-cover rounded-xl md:w-[30%]"
-            autoplay
-            loop
-            muted
-            playsinline
-          >
-            <source src={videoD1} type="video/mp4" />
-          </video>
-          <video
-            class="w-[90%] object-cover rounded-xl md:w-[30%]"
-            autoplay
-            loop
-            muted
-            playsinline
-          >
-            <source src={videoKMD} type="video/mp4" />
-          </video>
-          <video
-            class="w-[90%] object-cover rounded-xl md:w-[30%]"
-            autoplay
-            loop
-            muted
-            playsinline
-          >
-            <source src={videoD2} type="video/mp4" />
-          </video>
-        </div>
-      </div>
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Lecciones aprendidas"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Lecciones aprendidas
-        </h2>
-        <div class="flex flex-col gap-[12px] xl:w-[60%] 2xl:w-[50%]">
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            Este proyecto me brindó valiosas enseñanzas y una comprensión más
-            clara de por qué, en ocasiones, el uso de un framework puede
-            agilizar significativamente el proceso de desarrollo, llegando a ser
-            esencial. Además, aprendí la importancia de evaluar y considerar la
-            utilidad de un gestor de estado, ya que en ciertas situaciones su
-            implementación puede simplificar la escritura, lectura y, por ende,
-            la depuración del código.
-          </p>
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            Otra lección que destaco tras completar este proyecto es la
-            necesidad de conocer e implementar patrones de diseño. Estos no solo
-            mejoran la legibilidad del código, sino que también establecen un
-            marco de trabajo que, al ser seguido, simplifica notablemente la
-            depuración. Además, permiten crear componentes más reutilizables y
-            promueven prácticas que aseguran la calidad y claridad del código.
-          </p>
-        </div>
-      </div>
+      <header class="p-project__header">
+        <Image
+          class="p-project__header-img"
+          src={kanbanAppLap}
+          alt="Imagen del proyecto desde una laptop"
+          loading="eager"
+        />
+      </header>
     </section>
-    <div class="pt-[60px] md:pt-[100px] xl:pt-[160px] 2xl:pt-[240px]">
+    <div class="p-project__content">
+      <section class="p-project__section">
+        <div class="p-project__section-item">
+          <h2
+            data-title="Tecnologías"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Tecnologías
+          </h2>
+          <ul class="p-project__tech-list">
+            <li class="p-project__tech-item">
+              <IconHTML />
+            </li>
+            <li class="p-project__tech-item">
+              <IconCSS />
+            </li>
+            <li class="p-project__tech-item">
+              <IconJavascript />
+            </li>
+            <li class="p-project__tech-item">
+              <IconReact />
+            </li>
+            <li class="p-project__tech-item">
+              <IconVite />
+            </li>
+            <li class="p-project__tech-item p-project__tech-item--large">
+              <IconDNDKIT />
+            </li>
+          </ul>
+        </div>
+        <div class="p-project__section-item p-project__section-item--row">
+          <h2
+            data-title="Descripción"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Descripción
+          </h2>
+
+          <div class="p-project__text-wrapper">
+            <p class="p-project__text">
+              KanbanApp es un proyecto que facilita la organización de
+              actividades en distintas tablas, ofreciendo una visualización
+              clara y ordenada. Cada tabla se adapta a las necesidades
+              específicas de la actividad que estamos gestionando. Dentro de
+              cada una, podemos crear y mover elementos según su contexto y
+              requisitos particulares. Asimismo, estos elementos pueden
+              subdividirse para una gestión más detallada.
+            </p>
+          </div>
+        </div>
+        <div class="p-project__section-item p-project__section-item--row">
+          <h2
+            data-title="Rol y responsabilidades"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Rol y responsabilidades
+          </h2>
+
+          <div class="p-project__text-wrapper">
+            <p class="p-project__text">
+              En mi búsqueda de proyectos atractivos y divertidos de realizar,
+              me encontré con el proyecto KanbanApp. Utilicé el diseño
+              proporcionado por “Frontend Mentor”, donde encontré los estilos
+              base. Con este diseño como punto de partida, procedí a trabajar en
+              el proyecto. Elegí las tecnologías adecuadas, organicé el espacio
+              de desarrollo, realicé la maquetación y programé la aplicación en
+              su totalidad.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-project__images p-project__section--bgGradient">
+          <div class="p-project__image-wrapper">
+            <Image
+              class="p-project__image"
+              src={kanbanMF}
+              alt="Imagen de la aplicación en dispositivos móviles"
+            />
+          </div>
+          <div class="p-project__image-wrapper">
+            <Image
+              class="p-project__image"
+              src={kanbanMD}
+              alt="Imagen de la aplicación en navegador web"
+            />
+          </div>
+        </div>
+
+        <div class="p-project__section-item p-project__section-item--row">
+          <h2
+            data-title="Proceso de desarrollo"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Proceso de desarrollo
+          </h2>
+
+          <div class="p-project__text-wrapper">
+            <p class="p-project__text">
+              Al comenzar el proyecto, mi primer objetivo fue desglosar la
+              lógica detrás del mismo. Para esta tarea, utilicé una herramienta
+              llamada "Excalidraw", que me permitió visualizar los conceptos y
+              las diferentes partes que conforman el proyecto de manera clara y
+              organizada.
+            </p>
+
+            <p class="p-project__text">
+              Una vez establecido el enfoque para la lógica principal, procedí a
+              definir las tecnologías que utilizaría para llevar a cabo el
+              proyecto. Siempre mantuve como prioridad la reducción de
+              dependencias al mínimo necesario, con el fin de garantizar la
+              escalabilidad y la simplicidad en el desarrollo.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-project__section">
+          <div class="p-project__section-item p-project__section-item--row">
+            <h2
+              data-title="Desafíos y soluciones"
+              id="title_style"
+              class="p-project__subtitle"
+            >
+              Desafíos y soluciones
+            </h2>
+
+            <div class="p-project__text-wrapper">
+              <p class="p-project__text">
+                Uno de los desafíos principales al realizar este proyecto fue
+                crear un estado global, ya que había demasiada dependencia de
+                datos entre un gran número de componentes. Opté por utilizar
+                solo hooks nativos de React para esto, mediante el uso de un
+                único useReducer. Este suministraría a múltiples contextos las
+                funciones para modificar el estado correspondiente.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-project__video-wrapper p-project__section--bgGradient">
+            <div class="p-project__video-container">
+              <video
+                width="327"
+                height="168"
+                class="p-project__video"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={videoSrc} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <div class="p-project__section-item p-project__section-item--texts">
+            <p class="p-project__text p-project__text--resize">
+              Otro problema que enfrenté fue la necesidad de reescribir una
+              lógica extensa para guardar los datos actualizados en el
+              localStorage. Lo resolví creando un helper que validaría si
+              existen datos almacenados en el localStorage con una clave/valor
+              específica. En caso de no existir, el helper colocaría los valores
+              pasados en el localStorage.
+            </p>
+            <p class="p-project__text p-project__text--resize">
+              Además, tuve que validar los datos ingresados en los respectivos
+              componentes que modificaban el estado. La falta de esta validación
+              permitía enviar datos inválidos o nulos. Por ello, desarrollé
+              helpers que validaban los datos según el apartado que se estuviera
+              modificando (creación de la tabla, actualización de la tabla,
+              creación/actualización de tareas). Estos helpers también se
+              encargaban de resaltar en rojo el input que contenía el error y de
+              mostrar un mensaje explicativo sobre el error cometido.
+            </p>
+          </div>
+
+          <div class="p-project__video-wrapper p-project__section--bgGradient">
+            <div class="p-project__video-examples">
+              <video
+                class="video-examples__item"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={videoD1} type="video/mp4" />
+              </video>
+              <video
+                class="video-examples__item"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={videoD2} type="video/mp4" />
+              </video>
+              <video
+                class="video-examples__item"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={videoD3} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-project__section-item p-project__section-item--row">
+          <h2
+            data-title="Lecciones aprendidas"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Lecciones aprendidas
+          </h2>
+          <div class="p-project__text-wrapper">
+            <p class="p-project__text">
+              Este proyecto me brindó valiosas enseñanzas y una comprensión más
+              clara de por qué, en ocasiones, el uso de un framework puede
+              agilizar significativamente el proceso de desarrollo, llegando a
+              ser esencial. Además, aprendí la importancia de evaluar y
+              considerar la utilidad de un gestor de estado, ya que en ciertas
+              situaciones su implementación puede simplificar la escritura,
+              lectura y, por ende, la depuración del código.
+            </p>
+            <p class="p-project__text">
+              Otra lección que destaco tras completar este proyecto es la
+              necesidad de conocer e implementar patrones de diseño. Estos no
+              solo mejoran la legibilidad del código, sino que también
+              establecen un marco de trabajo que, al ser seguido, simplifica
+              notablemente la depuración. Además, permiten crear componentes más
+              reutilizables y promueven prácticas que aseguran la calidad y
+              claridad del código.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="p-project__footer">
       <FooterSection />
     </div>
   </div>
 </MainLayout>
 
 <style>
+  .p-project__section-item-l {
+    display: flex;
+    flex-direction: column;
+    background-color: #ff5125;
+  }
+
+  /*  */
+  .p-project__container {
+    background: linear-gradient(180deg, var(--pageColor), transparent);
+    position: relative;
+    padding-top: 120px;
+  }
+
+  .p-project__title {
+    color: var(--txt-color-t);
+    font-size: 60px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .p-project__title {
+      font-size: 90px;
+    }
+
+    .p-project__container {
+      padding-top: 80px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .p-project__title {
+      font-size: 120px;
+    }
+  }
+
+  .p-project__header {
+    /* aspect-ratio: 16/9; */
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .p-project__header-img {
+    width: 100%;
+    max-width: 1000px;
+
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    .p-project__text {
+      font-size: 18px;
+    }
+  }
+
+  .p-project__content {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    padding: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .p-project__content {
+      padding: 36px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .p-project__content {
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .p-project__content {
+      padding-left: 160px;
+      padding-right: 160px;
+    }
+  }
+
+  .p-project__section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    color: var(--txt-color-p);
+  }
+
+  @media (min-width: 1024px) {
+    .p-project__section {
+      gap: 100px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .p-project__section {
+      gap: 120px;
+    }
+  }
+
+  .p-project__section-item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  @media (min-width: 1280px) {
+    .p-project__section-item--row {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .p-project__section-item--texts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .p-project__subtitle {
+    color: white;
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  @media (min-width: 768px) {
+    .p-project__subtitle {
+      font-size: 28px;
+    }
+  }
+
+  .p-project__text {
+    color: var(--gray);
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .p-project__text {
+      font-size: 18px;
+    }
+  }
+
+  .p-project__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  @media (min-width: 1280px) {
+    .p-project__text-wrapper,
+    .p-project__text--resize {
+      width: 60%;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .p-project__text-wrapper,
+    .p-project__text--resize {
+      width: 50%;
+    }
+  }
+
+  .p-project__tech-list {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    list-style: none;
+  }
+
+  .p-project__tech-item {
+    width: 24px;
+    height: 24px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .p-project__tech-item {
+      width: 32px;
+    }
+  }
+
+  .p-project__tech-item--large {
+    width: 70px;
+    height: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (min-width: 768px) {
+    .p-project__tech-item--large {
+      width: 100px;
+    }
+  }
+
+  .p-project__images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+  }
+
+  .p-project__images::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: -10%;
+    right: -50%;
+
+    z-index: -2;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    opacity: 0.7;
+    filter: blur(100px);
+    background-color: var(--pageColor);
+  }
+
+  @media (min-width: 768px) {
+    .p-project__images::before {
+      width: calc(100vw / 1.5);
+      filter: blur(300px);
+      opacity: 1;
+    }
+  }
+  @media (min-width: 1280px) {
+    .p-project__images {
+      gap: 30px;
+    }
+
+    .p-project__images::before {
+      right: 0%;
+      max-width: 1000px;
+      filter: blur(400px);
+    }
+  }
+
+  .p-project__image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
+  @media (min-width: 1280px) {
+    .p-project__image-wrapper {
+      width: 1000px;
+    }
+  }
+
+  .p-project__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /*  */
+  .p-project__video-examples {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+
+    /* background-color: red; */
+
+    .video-examples__item {
+      width: 90%;
+      max-width: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  .p-project__video-examples::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 30px;
+    z-index: -3;
+    aspect-ratio: 1/1;
+    border-radius: 9999px;
+    filter: blur(100px);
+    opacity: 0.7;
+    background-color: var(--pageColor);
+  }
+
+  @media (min-width: 768px) {
+    .p-project__video-examples::before {
+      width: calc(100vw / 1.5);
+      bottom: -20%;
+      filter: blur(300px);
+      opacity: 1;
+    }
+
+    .p-project__video-examples {
+      flex-direction: row;
+      justify-content: center;
+
+      .video-examples__item {
+        width: 30%;
+        max-width: none;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .p-project__video-examples::before {
+      bottom: 15%;
+      /* opacity: 0.5; */
+      filter: blur(400px);
+      max-width: 700px;
+    }
+
+    .p-project__video-examples {
+      width: 80%;
+      .video-examples__item {
+        width: 30%;
+        max-width: 300px;
+      }
+    }
+  }
+
+  /*  */
+
+  .p-project__video-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .p-project__video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
+  @media (min-width: 1280px) {
+    .p-project__video-container {
+      width: 1000px;
+    }
+  }
+
+  .p-project__video {
+    width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 8px;
+  }
+
+  .p-project__footer {
+    padding-top: 60px;
+  }
+
+  @media (min-width: 768px) {
+    .p-project__footer {
+      padding-top: 100px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .p-project__footer {
+      padding-top: 160px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .p-project__footer {
+      padding-top: 240px;
+    }
+  }
+
   #header-bg::before {
     content: "";
     width: 100%;
     height: 100%;
-
     position: absolute;
     top: -25%;
     z-index: -1;
     opacity: 0.4;
-
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJjY2NpcmN1bGFyLWdyYWQiIHI9IjUwJSIgY3g9IjUwJSIgY3k9IjUwJSI+CiAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIiBzdG9wLW9wYWNpdHk9IjAuNSI+PC9zdG9wPgogICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9ImhzbCgwLCAwJSwgMTAwJSkiIHN0b3Atb3BhY2l0eT0iMC41Ij48L3N0b3A+CiAgICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuNSI+PC9zdG9wPgogICAgICA8L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48ZyBmaWxsPSJ1cmwoI2NjY2lyY3VsYXItZ3JhZCkiPjxjaXJjbGUgcj0iNjYxLjUiIGN4PSI0MDAiIGN5PSIwIiBvcGFjaXR5PSIwLjA1Ij48L2NpcmNsZT48Y2lyY2xlIHI9IjU4OCIgY3g9IjQwMCIgY3k9IjAiIG9wYWNpdHk9IjAuMTciPjwvY2lyY2xlPjxjaXJjbGUgcj0iNTE0LjUiIGN4PSI0MDAiIGN5PSIwIiBvcGFjaXR5PSIwLjI5Ij48L2NpcmNsZT48Y2lyY2xlIHI9IjQ0MSIgY3g9IjQwMCIgY3k9IjAiIG9wYWNpdHk9IjAuNDEiPjwvY2lyY2xlPjxjaXJjbGUgcj0iMzY3LjUiIGN4PSI0MDAiIGN5PSIwIiBvcGFjaXR5PSIwLjUzIj48L2NpcmNsZT48Y2lyY2xlIHI9IjI5NCIgY3g9IjQwMCIgY3k9IjAiIG9wYWNpdHk9IjAuNjQiPjwvY2lyY2xlPjxjaXJjbGUgcj0iMjIwLjUiIGN4PSI0MDAiIGN5PSIwIiBvcGFjaXR5PSIwLjc2Ij48L2NpcmNsZT48Y2lyY2xlIHI9IjE0NyIgY3g9IjQwMCIgY3k9IjAiIG9wYWNpdHk9IjAuODgiPjwvY2lyY2xlPjwvZz48L3N2Zz4=");
-
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -326,7 +700,6 @@ import MainLayout from "../../layouts/Layout.astro";
     position: absolute;
     inset: 0;
     z-index: -1;
-
     color: white;
     filter: blur(10px);
     opacity: 0.9;
