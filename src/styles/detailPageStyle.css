@@ -148,10 +148,9 @@
   gap: 28px;
   align-items: center;
 
-  /* background-color: red; */
-
   .video-examples__item {
     width: 90%;
+    height: 100%;
     max-width: 400px;
     object-fit: cover;
     border-radius: 8px;
