@@ -1,365 +1,323 @@
 ---
-import witwl from "@assets/WITW/WITWL.png";
-import witwmd from "@assets/WITW/WITWMD.png";
-import witwmf from "@assets/WITW/WITWMF.png";
+import projectHeader from "@assets/WITW/WITW-header.webp";
+import witwmd from "@assets/WITW/WITWMD.webp";
+import witwmf from "@assets/WITW/WITWMF.webp";
 import videoSrc from "@assets/WITW/WITWV.webm";
 import videoD1 from "@assets/WITW/video1r.webm";
 import videoD2 from "@assets/WITW/video2r.webm";
 import videoD3 from "@assets/WITW/video3r.webm";
+import IconCSS from "@assets/icons/IconCss.astro";
+import IconHTML from "@assets/icons/IconHtml5.astro";
+import IconJavascript from "@assets/icons/IconJavascript.astro";
+import IconReact from "@assets/icons/IconReact.astro";
+import IconReactRouterColor from "@assets/icons/IconReactrouter.astro";
+import IconVite from "@assets/icons/IconVitejs.astro";
 import FooterSection from "@components/FooterSection.astro";
 import Navbar from "@components/Navbar.astro";
-
-import IconCSSColor from "@assets/icons/IconCSSColor.astro";
-import IconHTMLColor from "@assets/icons/IconHTMLColor.astro";
-import IconJavascriptColor from "@assets/icons/IconJavascriptColor.astro";
-import IconReactColor from "@assets/icons/IconReactColor.astro";
-import IconReactRouterColor from "@assets/icons/IconReactRouterColor.astro";
-import IconViteColor from "@assets/icons/IconViteColor.astro";
 import { Image } from "astro:assets";
-import MainLayout from "../../layouts/Layout.astro";
+import MainLayout from "src/layouts/MainLayout.astro";
+import "src/styles/detailPageStyle.css";
 ---
 
 <MainLayout
-  title="Where in the World -- Diego Pm"
-  description={"Where in the world es un proyecto que ofrece información detallada sobre todos los países del mundo. Esto facilita a los usuarios encontrar dato relevantes sobre cualquier lugar de interés. Con esta aplicación, los usuarios pueden explorar países mediante una búsqueda individual o por región, lo que les permite obtener una visión más amplia y completa."}
+  pageTitle="Where in the World -- Diego Pm"
+  description="Where in the world es un proyecto que ofrece información detallada sobre todos los países del mundo. Esto facilita a los usuarios encontrar dato relevantes sobre cualquier lugar de interés. Con esta aplicación, los usuarios pueden explorar países mediante una búsqueda individual o por región, lo que les permite obtener una visión más amplia y completa."
 >
   <Navbar projectUrl="https://where-in-the-world-ashy.vercel.app/" />
-  <section
-    id="header-bg"
-    class="bg-gradient-to-b from-emerald-700 relative pt-[120px] md:pt-[60px]"
-  >
-    <h1
-      data-title="Where in the World"
-      id="title_style"
-      class="text-white text-[60px] font-bold text-center md:text-[90px] lg:text-[120px]"
-    >
-      Where in the World
-    </h1>
-
-    <div class="flex justify-center">
-      <Image
-        class="w-full aspect-mockup lg:w-[1000px] object-fill"
-        src={witwl}
-        alt="Imagen del proyecto desde una laptop"
-        loading="eager"
-      />
-    </div>
-  </section>
-  <div
-    class="w-full overflow-x-hidden relative p-[24px] md:p-[36px] lg:px-[60px] xl:px-[160px]"
-  >
-    <section
-      class="w-full flex flex-col gap-[42px] lg:gap-[100px] 1xl:gap-[120px]"
-    >
-      <div class="flex flex-col gap-[15px]">
-        <h2
-          data-title="Tecnologías"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Tecnologías
-        </h2>
-        <ul class="flex gap-[12px] items-center">
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconHTMLColor />
-          </li>
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconCSSColor />
-          </li>
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconJavascriptColor />
-          </li>
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconReactColor />
-          </li>
-          <li class="aspect-square w-[24px] md:w-[32px]">
-            <IconViteColor />
-          </li>
-          <li class="relative aspect-square w-[26px] md:w-[32px]">
-            <IconReactRouterColor />
-          </li>
-        </ul>
-      </div>
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Descripción"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Descripción
-        </h2>
-        <div class="flex flex-col gap-[12px] xl:w-[60%] 2xl:w-[50%]">
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            "Where in the world" es un proyecto que ofrece información detallada
-            sobre todos los países del mundo. Esto facilita a los usuarios
-            encontrar datos relevantes sobre cualquier lugar de interés. Con
-            esta aplicación, los usuarios pueden explorar países mediante una
-            búsqueda individual o por región, lo que les permite obtener una
-            visión más amplia y completa.
-          </p>
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            Entre la información proporcionada se encuentran detalles como el
-            nombre nativo del país, su población total, la región a la que
-            pertenece, su subregión específica, la capital y otras
-            características relevantes. Este proyecto tiene como objetivo
-            proporcionar una experiencia informativa y fácil de usar para
-            aquellos interesados en conocer más sobre los distintos países del
-            mundo.
-          </p>
-        </div>
-      </div>
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Rol y responsabilidades"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Rol y responsabilidades
-        </h2>
-        <p
-          class="text-Gray text-[16px] font-normal md:text-[18px] xl:w-[60%] 2xl:w-[50%]"
-        >
-          En este proyecto me enfoqué principalmente en el desarrollo frontend,
-          donde seleccioné cuidadosamente las tecnologías adecuadas, organicé el
-          espacio de desarrollo y completé la maquetación de la aplicación.
-          Gracias al diseño base proporcionado por Frontend Mentor a través de
-          Figma, pude concentrarme por completo en el entorno de desarrollo sin
-          preocuparme demasiado por crear una interfaz de usuario atractiva
-          desde cero.
-        </p>
-      </div>
-
-      <div class="flex flex-col items-center gap-[15px] xl:gap-[30px]">
-        <div
-          class="relative w-full xl:w-[1000px] before:w-[120%] before:absolute before:left-0 before:right-0 before:m-auto before:top-[-20%] before:z-[-3] before:aspect-square before:rounded-full before:blur-3xl before:opacity-50 before:bg-emerald-500 md:before:opacity-30"
-        >
-          <Image
-            class="object-cover rounded-xl z-10"
-            src={witwmf}
-            alt="Imagen de la aplicacion en dispositivos moviles"
-          />
-        </div>
-        <div class="w-full xl:w-[1000px]">
-          <Image
-            class="object-cover rounded-xl z-10"
-            src={witwmd}
-            alt="Imagen de la aplicacion en navegador web"
-          />
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Proceso de desarrollo"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Proceso de desarrollo
-        </h2>
-
-        <div class="flex flex-col gap-[12px] xl:w-[60%] 2xl:w-[50%]">
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            En este proyecto, inicialmente me enfoqué en identificar las rutas
-            principales de la aplicación. Una vez definidas estas rutas, procedí
-            a crear las páginas correspondientes para cada una de ellas.
-            Posteriormente, para determinar qué estados eran necesarios, utilicé
-            una herramienta llamada "Excalidraw" para crear diagramas que
-            definieran los estados principales dentro de cada componente padre.
-            Una vez completado este paso, pude dedicarme a cada característica
-            específica de las páginas, como el buscador y el selector de país,
-            entre otros.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Desafíos y soluciones"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Desafíos y soluciones
-        </h2>
-        <p
-          class="text-Gray text-[16px] font-normal md:text-[18px] xl:w-[60%] 2xl:w-[50%]"
-        >
-          Uno de los desafíos que enfrenté fue sincronizar el estado de la URL
-          con la obtención de datos. Había creado un hook personalizado para
-          obtener datos, pero necesitaba que este hook se ejecutara tanto al
-          cambiar de página como al cargar directamente el enlace. Para resolver
-          este problema, desarrollé otro hook que, basado en los datos de la
-          URL, proporcionara el endpoint correspondiente al hook de obtención de
-          datos, para luego pasarlo a un estado y hacer uso de los datos.
-        </p>
-      </div>
-
-      <div class="relative w-full flex justify-center">
-        <div
-          class="before:w-[90%] before:absolute before:left-0 before:right-0 before:m-auto before:top-[-30%] before:z-[-3] before:aspect-video before:rounded-full before:blur-3xl before:opacity-50 before:bg-emerald-500 md:before:opacity-20 md:before:w-[60%] lg:before:w-[60%] lg:before:opacity-20 lg:before:top-[-10%]"
-        >
-          <video
-            width="327"
-            height="168"
-            class="w-full h-fit object-fill rounded-xl xl:w-[1000px] xl:h-[562.5px]"
-            autoplay
-            loop
-            muted
-            playsinline
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-        </div>
-      </div>
-
-      <div class="flex justify-end">
-        <div class="flex flex-col gap-[12px] xl:w-[60%] 2xl:w-[50%]">
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            Un problema al que no había anticipado enfrentarme era que la API
-            que utilicé para obtener los datos no tenía un límite en el número
-            de países que debía devolver en cada llamada, lo que complicaba la
-            paginación ya que siempre recuperaba todos los datos disponibles.
-            Para resolver este problema, creé un hook que recibía la información
-            correspondiente según la ubicación y el número de elementos que se
-            deseaba mostrar por página. Con estos datos, el hook devolvía el
-            número total de páginas y la información que debía mostrarse en la
-            página actual.
-          </p>
-          <p
-            class="text-Gray text-[16px] font-normal text-pretty md:text-[18px]"
-          >
-            Además, tuve que validar los datos ingresados en los respectivos
-            componentes que modificaban el estado. La falta de esta validación
-            permitía enviar datos inválidos o nulos. Por ello, desarrollé
-            helpers que validaban los datos según el apartado que se estuviera
-            modificando (creación de la tabla, actualización de la tabla,
-            creación/actualización de tareas). Estos helpers también se
-            encargaban de resaltar en rojo el input que contenía el error y de
-            mostrar un mensaje explicativo sobre el error cometido.
-          </p>
-
-          <p
-            class="text-Gray text-[16px] font-normal text-pretty md:text-[18px]"
-          >
-            De todos los segmentos de la aplicación, el componente de paginación
-            fue una funcionalidad que resultó más desafiante de lo que
-            anticipaba. No esperaba encontrarme con tantos problemas al
-            implementarlo. La complejidad radicaba en la necesidad de generar
-            dinámicamente un conjunto de botones para cambiar de página, en
-            función del número total de páginas. Además, debía decidir cuántos
-            botones mostrar y cómo ajustar los números en los componentes según
-            la página actual en la que se encontrara el usuario, por ejemplo: 1,
-            2, 3, 4, 5 o 1, ..., 4, 5, 6, ..., 21.
-          </p>
-
-          <p
-            class="text-Gray text-[16px] font-normal text-pretty md:text-[18px]"
-          >
-            Después de varios intentos y errores, desarrollé un hook específico
-            para manejar esta funcionalidad. Este hook recibe como parámetros el
-            número total de páginas y la cantidad de botones que deseamos
-            mostrar. Luego, realiza una validación para determinar las
-            posiciones y los números que se mostrarán, teniendo en cuenta la
-            página actual y el número total de páginas.
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="relative flex justify-center before:w-[90%] before:absolute before:left-0 before:right-0 before:m-auto before:bottom-[-5%] before:z-[-3] before:aspect-video before:rounded-full before:blur-3xl before:opacity-50 before:bg-emerald-500 md:before:opacity-30 md:before:w-[100%] md:before:bottom-[-20%] lg:before:w-[60%] lg:before:opacity-20"
+  <div style=`--pageColor : #04dda0`>
+    <section id="header-bg" class="p-project__container">
+      <h1
+        data-title="Where in the World"
+        id="title_style"
+        class="p-project__title"
       >
-        <div
-          class="w-full max-h-min flex flex-col items-center justify-center gap-[12px] py-[22px] rounded-xl bg-zinc-900 ring-1 ring-zinc-800 md:flex-row md:gap-[12px] lg:flex-row xl:gap-[24px] xl:w-[1000px]"
-        >
-          <video
-            class="w-[90%] aspect-phone object-fill rounded-xl md:w-[30%] brightness-125"
-            autoplay
-            loop
-            muted
-            playsinline
-          >
-            <source src={videoD1} type="video/webm" />
-          </video>
-          <video
-            class="brightness-125 w-[90%] object-fill aspect-phone rounded-xl md:w-[30%]"
-            autoplay
-            loop
-            muted
-            playsinline
-          >
-            <source src={videoD2} type="video/webm" />
-          </video>
-          <video
-            class="w-[90%] object-fill aspect-phone rounded-xl md:w-[30%] brightness-125"
-            autoplay
-            loop
-            muted
-            playsinline
-          >
-            <source src={videoD3} type="video/webm" />
-          </video>
-        </div>
-      </div>
-      <div class="flex flex-col gap-[15px] xl:flex-row xl:justify-between">
-        <h2
-          data-title="Lecciones aprendidas"
-          id="title_style"
-          class="text-white font-semibold text-[22px] md:text-[28px]"
-        >
-          Lecciones aprendidas
-        </h2>
-        <div class="flex flex-col gap-[12px] xl:w-[60%] 2xl:w-[50%]">
-          <p class="text-Gray text-[16px] font-normal md:text-[18px]">
-            Después de este proyecto, realmente amplié mi comprensión sobre la
-            importancia de abordar problemas inesperados con creatividad y
-            flexibilidad. Aprendí a no reinventar la rueda y a valorar la
-            eficiencia que proporciona el uso de componentes ya existentes.
-            Además, adquirí habilidades para buscar soluciones de manera más
-            efectiva y precisa, explorando recursos disponibles y aprovechando
-            la experiencia de la comunidad de desarrollo. En resumen, este
-            proyecto no solo me permitió fortalecer mis habilidades técnicas,
-            sino también mi enfoque en la resolución de problemas en el
-            desarrollo de software.
-          </p>
-        </div>
-      </div>
+        Where in the World
+      </h1>
+
+      <header class="p-project__header">
+        <Image
+          class="p-project__header-img"
+          src={projectHeader}
+          alt="Imagen del proyecto Where in the World desde una laptop"
+          loading="eager"
+        />
+      </header>
     </section>
-    <div class="pt-[60px] md:pt-[100px] xl:pt-[160px] 2xl:pt-[240px]">
+    <div class="p-project__content">
+      <section class="p-project__section">
+        <div class="p-project__section-item">
+          <h2
+            data-title="Tecnologías"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Tecnologías
+          </h2>
+          <ul class="p-project__tech-list">
+            <li class="p-project__tech-item">
+              <IconHTML />
+            </li>
+            <li class="p-project__tech-item">
+              <IconCSS />
+            </li>
+            <li class="p-project__tech-item">
+              <IconJavascript />
+            </li>
+            <li class="p-project__tech-item">
+              <IconReact />
+            </li>
+            <li class="p-project__tech-item">
+              <IconVite />
+            </li>
+            <li class="p-project__tech-item">
+              <IconReactRouterColor />
+            </li>
+          </ul>
+        </div>
+        <div class="p-project__section-item p-project__section-item--row">
+          <h2
+            data-title="Descripción"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Descripción
+          </h2>
+
+          <div class="p-project__text-wrapper">
+            <p class="p-project__text">
+              "Where in the world" es un proyecto que ofrece información
+              detallada sobre todos los países del mundo. Esto facilita a los
+              usuarios encontrar datos relevantes sobre cualquier lugar de
+              interés. Con esta aplicación, los usuarios pueden explorar países
+              mediante una búsqueda individual o por región, lo que les permite
+              obtener una visión más amplia y completa.
+            </p>
+            <p class="p-project__text">
+              Entre la información proporcionada se encuentran detalles como el
+              nombre nativo del país, su población total, la región a la que
+              pertenece, su subregión específica, la capital y otras
+              características relevantes. Este proyecto tiene como objetivo
+              proporcionar una experiencia informativa y fácil de usar para
+              aquellos interesados en conocer más sobre los distintos países del
+              mundo.
+            </p>
+          </div>
+        </div>
+        <div class="p-project__section-item p-project__section-item--row">
+          <h2
+            data-title="Rol y responsabilidades"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Rol y responsabilidades
+          </h2>
+
+          <div class="p-project__text-wrapper">
+            <p class="p-project__text">
+              En este proyecto me enfoqué principalmente en el desarrollo
+              frontend, donde seleccioné cuidadosamente las tecnologías
+              adecuadas, organicé el espacio de desarrollo y completé la
+              maquetación de la aplicación. Gracias al diseño base proporcionado
+              por Frontend Mentor a través de Figma, pude concentrarme por
+              completo en el entorno de desarrollo sin preocuparme demasiado por
+              crear una interfaz de usuario atractiva desde cero.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-project__images p-project__section--bgGradient">
+          <div class="p-project__image-wrapper">
+            <Image
+              class="p-project__image"
+              src={witwmf}
+              alt="Imagen de la aplicación en dispositivos móviles"
+            />
+          </div>
+          <div class="p-project__image-wrapper">
+            <Image
+              class="p-project__image"
+              src={witwmd}
+              alt="Imagen de la aplicación en navegador web"
+            />
+          </div>
+        </div>
+
+        <div class="p-project__section-item p-project__section-item--row">
+          <h2
+            data-title="Proceso de desarrollo"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Proceso de desarrollo
+          </h2>
+
+          <div class="p-project__text-wrapper">
+            <p class="p-project__text">
+              En este proyecto, inicialmente me enfoqué en identificar las rutas
+              principales de la aplicación. Una vez definidas estas rutas,
+              procedí a crear las páginas correspondientes para cada una de
+              ellas. Posteriormente, para determinar qué estados eran
+              necesarios, utilicé una herramienta llamada "Excalidraw" para
+              crear diagramas que definieran los estados principales dentro de
+              cada componente padre. Una vez completado este paso, pude
+              dedicarme a cada característica específica de las páginas, como el
+              buscador y el selector de país, entre otros.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-project__section">
+          <div class="p-project__section-item p-project__section-item--row">
+            <h2
+              data-title="Desafíos y soluciones"
+              id="title_style"
+              class="p-project__subtitle"
+            >
+              Desafíos y soluciones
+            </h2>
+
+            <div class="p-project__text-wrapper">
+              <p class="p-project__text">
+                Uno de los desafíos que enfrenté fue sincronizar el estado de la
+                URL con la obtención de datos. Había creado un hook
+                personalizado para obtener datos, pero necesitaba que este hook
+                se ejecutara tanto al cambiar de página como al cargar
+                directamente el enlace. Para resolver este problema, desarrollé
+                otro hook que, basado en los datos de la URL, proporcionara el
+                endpoint correspondiente al hook de obtención de datos, para
+                luego pasarlo a un estado y hacer uso de los datos.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-project__video-wrapper p-project__section--bgGradient">
+            <div class="p-project__video-container">
+              <video
+                width="327"
+                height="168"
+                class="p-project__video"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={videoSrc} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <div class="p-project__section-item p-project__section-item--texts">
+            <p class="p-project__text p-project__text--resize">
+              Un problema al que no había anticipado enfrentarme era que la API
+              que utilicé para obtener los datos no tenía un límite en el número
+              de países que debía devolver en cada llamada, lo que complicaba la
+              paginación ya que siempre recuperaba todos los datos disponibles.
+              Para resolver este problema, creé un hook que recibía la
+              información correspondiente según la ubicación y el número de
+              elementos que se deseaba mostrar por página. Con estos datos, el
+              hook devolvía el número total de páginas y la información que
+              debía mostrarse en la página actual.
+            </p>
+            <p class="p-project__text p-project__text--resize">
+              Además, tuve que validar los datos ingresados en los respectivos
+              componentes que modificaban el estado. La falta de esta validación
+              permitía enviar datos inválidos o nulos. Por ello, desarrollé
+              helpers que validaban los datos según el apartado que se estuviera
+              modificando (creación de la tabla, actualización de la tabla,
+              creación/actualización de tareas). Estos helpers también se
+              encargaban de resaltar en rojo el input que contenía el error y de
+              mostrar un mensaje explicativo sobre el error cometido.
+            </p>
+
+            <p class="p-project__text p-project__text--resize">
+              De todos los segmentos de la aplicación, el componente de
+              paginación fue una funcionalidad que resultó más desafiante de lo
+              que anticipaba. No esperaba encontrarme con tantos problemas al
+              implementarlo. La complejidad radicaba en la necesidad de generar
+              dinámicamente un conjunto de botones para cambiar de página, en
+              función del número total de páginas. Además, debía decidir cuántos
+              botones mostrar y cómo ajustar los números en los componentes
+              según la página actual en la que se encontrara el usuario, por
+              ejemplo: 1, 2, 3, 4, 5 o 1, ..., 4, 5, 6, ..., 21.
+            </p>
+            <p class="p-project__text p-project__text--resize">
+              Después de varios intentos y errores, desarrollé un hook
+              específico para manejar esta funcionalidad. Este hook recibe como
+              parámetros el número total de páginas y la cantidad de botones que
+              deseamos mostrar. Luego, realiza una validación para determinar
+              las posiciones y los números que se mostrarán, teniendo en cuenta
+              la página actual y el número total de páginas.
+            </p>
+          </div>
+
+          <div class="p-project__video-wrapper p-project__section--bgGradient">
+            <div class="p-project__video-examples">
+              <video
+                class="video-examples__item"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={videoD1} type="video/mp4" />
+              </video>
+              <video
+                class="video-examples__item"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={videoD2} type="video/mp4" />
+              </video>
+              <video
+                class="video-examples__item"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={videoD3} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-project__section-item p-project__section-item--row">
+          <h2
+            data-title="Lecciones aprendidas"
+            id="title_style"
+            class="p-project__subtitle"
+          >
+            Lecciones aprendidas
+          </h2>
+          <div class="p-project__text-wrapper">
+            <p class="p-project__text">
+              Después de este proyecto, realmente amplié mi comprensión sobre la
+              importancia de abordar problemas inesperados con creatividad y
+              flexibilidad. Aprendí a no reinventar la rueda y a valorar la
+              eficiencia que proporciona el uso de componentes ya existentes.
+              Además, adquirí habilidades para buscar soluciones de manera más
+              efectiva y precisa, explorando recursos disponibles y aprovechando
+              la experiencia de la comunidad de desarrollo. En resumen, este
+              proyecto no solo me permitió fortalecer mis habilidades técnicas,
+              sino también mi enfoque en la resolución de problemas en el
+              desarrollo de software.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="p-project__footer">
       <FooterSection />
     </div>
   </div>
 </MainLayout>
 
 <style>
-  #header-bg::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-    top: -25%;
-    z-index: -1;
-    opacity: 0.4;
-
-    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJjY2NpcmN1bGFyLWdyYWQiIHI9IjUwJSIgY3g9IjUwJSIgY3k9IjUwJSI+CiAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIiBzdG9wLW9wYWNpdHk9IjAuNSI+PC9zdG9wPgogICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9ImhzbCgwLCAwJSwgMTAwJSkiIHN0b3Atb3BhY2l0eT0iMC41Ij48L3N0b3A+CiAgICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuNSI+PC9zdG9wPgogICAgICA8L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48ZyBmaWxsPSJ1cmwoI2NjY2lyY3VsYXItZ3JhZCkiPjxjaXJjbGUgcj0iNjYxLjUiIGN4PSI0MDAiIGN5PSIwIiBvcGFjaXR5PSIwLjA1Ij48L2NpcmNsZT48Y2lyY2xlIHI9IjU4OCIgY3g9IjQwMCIgY3k9IjAiIG9wYWNpdHk9IjAuMTciPjwvY2lyY2xlPjxjaXJjbGUgcj0iNTE0LjUiIGN4PSI0MDAiIGN5PSIwIiBvcGFjaXR5PSIwLjI5Ij48L2NpcmNsZT48Y2lyY2xlIHI9IjQ0MSIgY3g9IjQwMCIgY3k9IjAiIG9wYWNpdHk9IjAuNDEiPjwvY2lyY2xlPjxjaXJjbGUgcj0iMzY3LjUiIGN4PSI0MDAiIGN5PSIwIiBvcGFjaXR5PSIwLjUzIj48L2NpcmNsZT48Y2lyY2xlIHI9IjI5NCIgY3g9IjQwMCIgY3k9IjAiIG9wYWNpdHk9IjAuNjQiPjwvY2lyY2xlPjxjaXJjbGUgcj0iMjIwLjUiIGN4PSI0MDAiIGN5PSIwIiBvcGFjaXR5PSIwLjc2Ij48L2NpcmNsZT48Y2lyY2xlIHI9IjE0NyIgY3g9IjQwMCIgY3k9IjAiIG9wYWNpdHk9IjAuODgiPjwvY2lyY2xlPjwvZz48L3N2Zz4=");
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-
-  #title_style {
-    position: relative;
-    z-index: 20;
-  }
-
-  #title_style::before {
-    content: attr(data-title);
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-
-    color: white;
-    filter: blur(10px);
-    opacity: 0.9;
+  .video-examples__item:nth-child(1),
+  .video-examples__item:nth-child(2) {
+    filter: brightness(1.4);
   }
 </style>
