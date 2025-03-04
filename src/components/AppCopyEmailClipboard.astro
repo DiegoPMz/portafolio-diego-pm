@@ -51,16 +51,12 @@ import AppButton from "./AppButton.astro";
 </style>
 
 <script>
+  import { copyToClipboard } from "src/utils/copyToClipboard";
+
   const btn = document.querySelector("#app-copy-email");
   const PERSONAL_EMAIL = "diego.pmz08@gmail.com";
   const CLASS_ANIMATION = "copy-email__popUp--visible";
   let interval: number | undefined;
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(PERSONAL_EMAIL).catch(function (err) {
-      console.error("Error al intentar copiar al portapapeles: ", err);
-    });
-  };
 
   const sequencePopUp = (cloneEl: Element, parent: Element) => {
     const addInitialClassTimeOut = setTimeout(() => {
@@ -91,7 +87,7 @@ import AppButton from "./AppButton.astro";
 
   if (btn) {
     btn.addEventListener("click", () => {
-      copyToClipboard();
+      copyToClipboard(PERSONAL_EMAIL);
       handlePopUp();
     });
   } else clearTimeout(interval);

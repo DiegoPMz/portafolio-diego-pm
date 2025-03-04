@@ -36,7 +36,11 @@ import ArrowLinkIcon from "@assets/ArrowLinkIcon.astro";
       </a>
     </li>
     <li class="footer__list">
-      <button type="button" class="footer__list-item-link">
+      <button
+        id="footer__list-btn-email"
+        type="button"
+        class="footer__list-item-link"
+      >
         Email
         <div class="footer__list-item-icon">
           <ArrowLinkIcon />
@@ -213,3 +217,13 @@ import ArrowLinkIcon from "@assets/ArrowLinkIcon.astro";
     }
   }
 </style>
+
+<script>
+  import { copyToClipboard } from "src/utils/copyToClipboard";
+
+  const btn = document.querySelector("#footer__list-btn-email");
+  const PERSONAL_EMAIL = "diego.pmz08@gmail.com";
+  if (btn) {
+    btn.addEventListener("click", () => copyToClipboard(PERSONAL_EMAIL));
+  }
+</script>
