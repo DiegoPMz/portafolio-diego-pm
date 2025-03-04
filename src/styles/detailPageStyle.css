@@ -82,9 +82,9 @@
 .p-project__tech-list {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   align-items: center;
-
   list-style: none;
 }
 
