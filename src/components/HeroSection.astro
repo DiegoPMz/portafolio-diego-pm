@@ -1,5 +1,4 @@
 ---
-import IconEmail from "@assets/icons/IconEmail.astro";
 import IconGithub from "@assets/icons/IconGithub.astro";
 import AppButton from "./AppButton.astro";
 import AppCopyEmailClipboard from "./AppCopyEmailClipboard.astro";
@@ -22,7 +21,10 @@ import AppCopyEmailClipboard from "./AppCopyEmailClipboard.astro";
       </div>
     </div>
     <div class="ctn-links-draft">
-      <AppButton type="a">
+      <AppButton
+        type="a"
+        link={{ href: "https://github.com/DiegoPMz", target: "_blank" }}
+      >
         <div class="introduction__link-ctn">
           <div class="introduction__link">
             <IconGithub />
