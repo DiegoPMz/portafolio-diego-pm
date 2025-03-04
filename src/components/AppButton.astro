@@ -1,18 +1,28 @@
 ---
 interface Props {
   type?: "button" | "a";
+  link?: {
+    href: string;
+    target: string;
+  };
+  id?: string;
 }
 
-const { type = "button" } = Astro.props;
+const { type = "button", link, id } = Astro.props;
 ---
 
 {
   type === "button" ? (
-    <button class="app-btn">
+    <button id={id} class="app-btn">
       <slot />
     </button>
   ) : (
-    <a class="app-btn" href="#" target="_blank">
+    <a
+      id={id}
+      class="app-btn"
+      href={link?.href ?? "#"}
+      target={link?.target ?? "_blank"}
+    >
       <slot />
     </a>
   )

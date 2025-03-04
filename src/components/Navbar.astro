@@ -1,27 +1,38 @@
 ---
 import IconArrow from "@assets/IconArrow.astro";
-
+import AppButton from "./AppButton.astro";
 const { projectUrl } = Astro.props;
 ---
 
-<nav id="ran" class="p-projects-navbar">
-  <a href="/" class="p-projects-navbar__goBack">
-    <div class="navbar__goBack-icon">
-      <IconArrow />
-    </div>
-    <span class="navbar__goBack-txt"> Regresar </span>
-  </a>
-  <a
-    id="link-style"
-    class="p-projects-navbar__project"
-    href={projectUrl ?? "#"}
-    target="_blank"
-  >
-    <span class="navbar__project-txt"> Visitar </span>
-  </a>
+<nav class="p-projects-navbar">
+  <div class="navbar__link-ctn">
+    <AppButton type="a" link={{ href: "/", target: "_self" }}>
+      <div class="link-ctn__wrapper">
+        <div class="navbar__goBack-icon">
+          <IconArrow />
+        </div>
+        <span class="navbar__goBack-txt"> Regresar </span>
+      </div>
+    </AppButton>
+  </div>
+
+  <div class="navbar__link-ctn">
+    <AppButton type="a" link={{ href: projectUrl, target: "_blank" }}>
+      <span class="navbar__project-txt"> Visitar </span>
+    </AppButton>
+  </div>
 </nav>
 
 <style>
+  .navbar__link-ctn {
+    z-index: 100;
+  }
+  .link-ctn__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
   .p-projects-navbar {
     position: fixed;
     top: 0;
@@ -53,20 +64,6 @@ const { projectUrl } = Astro.props;
     --display-value: 0;
   }
 
-  .p-projects-navbar__goBack {
-    display: flex;
-    align-items: center;
-    justify-content:;
-    gap: 6px;
-    color: white;
-    background-color: black;
-    padding: 0.3rem 0.5rem;
-    border-radius: 9999px;
-    font-size: 1rem;
-    font-weight: 400;
-    position: relative;
-  }
-
   .navbar__goBack-icon {
     animation: pulse 2s infinite;
 
@@ -75,58 +72,6 @@ const { projectUrl } = Astro.props;
       width: 12px;
       fill: var(--txt-color-t);
     }
-  }
-
-  .p-projects-navbar__project {
-    color: white;
-    font-size: 1rem;
-    font-weight: 400;
-    position: relative;
-    z-index: 50;
-    border-radius: 16px;
-    width: fit-content;
-    padding: 0.3rem 1rem;
-    background: linear-gradient(
-      90deg,
-      hsla(254, 68%, 9%, 1) 0%,
-      hsla(269, 97%, 37%, 1) 33%,
-      hsla(320, 77%, 55%, 1) 66%,
-      hsla(316, 41%, 93%, 1) 100%
-    );
-  }
-
-  .p-projects-navbar__project::before {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    inset: 1px;
-    background-color: #000;
-    border-radius: 16px;
-  }
-
-  .p-projects-navbar__project:hover::before {
-    opacity: 0.7;
-  }
-
-  .p-projects-navbar__project::after {
-    content: "";
-    position: absolute;
-    inset: 0px;
-    border-radius: 16px;
-    background: linear-gradient(
-      90deg,
-      hsla(254, 68%, 9%, 1) 0%,
-      hsla(269, 97%, 37%, 1) 33%,
-      hsla(320, 77%, 55%, 1) 66%,
-      hsla(316, 41%, 93%, 1) 100%
-    );
-    transition: 0.5s;
-    opacity: 0;
-    filter: blur(20px);
-  }
-
-  .p-projects-navbar__project:hover::after {
-    opacity: 1;
   }
 
   @keyframes pulse {
@@ -167,7 +112,7 @@ const { projectUrl } = Astro.props;
     if (!navElement) return;
     const scrollPosition = window.scrollY;
 
-    if (scrollPosition > 10) {
+    if (scrollPosition > 0) {
       navElement.classList.add("nav-visible");
       navElement.classList.remove("nav-hidden");
     } else {
