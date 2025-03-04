@@ -2,6 +2,7 @@
 import IconEmail from "@assets/icons/IconEmail.astro";
 import IconGithub from "@assets/icons/IconGithub.astro";
 import AppButton from "./AppButton.astro";
+import AppCopyEmailClipboard from "./AppCopyEmailClipboard.astro";
 ---
 
 <section class="ctn-home__introduction">
@@ -29,14 +30,7 @@ import AppButton from "./AppButton.astro";
           Github
         </div>
       </AppButton>
-      <AppButton>
-        <div class="introduction__link-ctn">
-          <div class="introduction__link">
-            <IconEmail />
-          </div>
-          Email
-        </div>
-      </AppButton>
+      <AppCopyEmailClipboard />
     </div>
 
     <article class="introduction__paragraph-subCtn">
